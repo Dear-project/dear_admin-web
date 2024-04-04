@@ -25,6 +25,15 @@
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"],
-  "presets": ["next/babel"],
-  "plugins": [["styled-components", { "ssr": true }]]
+  "presets" : ["next/babel"],
+    "plugins": [
+        [
+            "styled-components",
+            {
+                "ssr": true,
+                "displayName": true,
+                "preprocess": false
+            }
+        ]
+    ]
 }
