@@ -1,11 +1,13 @@
+'use client'
 import * as S from "../style"
 
-const Login=()=>{
+const Login=async()=>{
+    
     return(
         <S.login>
-        <S.LoginGroup>
-            
-        </S.LoginGroup>
+            <S.LoginGroup>
+                
+            </S.LoginGroup>
         </S.login>
     )
 }
