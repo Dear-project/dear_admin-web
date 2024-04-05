@@ -20,7 +20,7 @@ export const LoginGroup = styled.div`
   background: ${theme.colors.White};
   box-shadow: 4px 4px 8px 0px ${theme.colors.Gray300};
 `;
-export const LoginMain = styled.div`
+export const LoginForm = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
