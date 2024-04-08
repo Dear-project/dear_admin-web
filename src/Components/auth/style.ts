@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { theme } from "src/style/them";
+import { theme } from "@/style/theme";
 
 export const login = styled.div`
   display: flex;

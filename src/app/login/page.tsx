@@ -1,6 +1,5 @@
-import LoginPage from "src/Components/auth/index";
-export default function Login(){
-    return(
-        <LoginPage/>
-    )
+import LoginPage from "@/components/auth/index";
+
+export default function Login() {
+  return <LoginPage />;
 }
