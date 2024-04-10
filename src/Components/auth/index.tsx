@@ -1,37 +1,22 @@
 "use client";
-import React, { ChangeEvent, useState } from "react";
-
+import useLogin from "@/hooks/Auth/useLogin";
 import * as S from "./style";
 
+
 const LoginPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
-  };
-
-  const handleLogin = () => {
-    alert(email);
-    alert(password);
-  };
+  const { idRef, pwRef, ...login } = useLogin();
 
   return (
     <S.login>
       <S.LoginGroup>
-        <S.LoginForm onSubmit={handleLogin}>
-          <h1>DEAR.</h1>
-
+        <S.LoginForm onSubmit={login.handleLogin}>
+          <h1>DEAR.</h1>f
           <S.InputBox>
             <S.LoginInput
               type="email"
               placeholder="이메일"
-              value={email}
-              onChange={handleEmailChange}
+      
+             ref={idRef}
             />
             <S.BottomBar></S.BottomBar>
           </S.InputBox>
@@ -39,8 +24,8 @@ const LoginPage = () => {
             <S.LoginInput
               type="password"
               placeholder="비밀번호"
-              value={password}
-              onChange={handlePasswordChange}
+              
+             ref={pwRef}
             />
             <S.BottomBar></S.BottomBar>
           </S.InputBox>

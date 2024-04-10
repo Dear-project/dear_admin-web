@@ -8,6 +8,9 @@ import reset from "styled-reset";
     * {
       margin: 0;
       padding: 0;
+      color:black;
+      font-family: Pretendard;
+
     }
     a {
       text-decoration: none;

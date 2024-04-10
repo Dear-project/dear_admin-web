@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { theme } from "@/style/theme";
+import { theme } from "@/styles/theme";
 
-export const login = styled.div`
+export const login = styled.main`
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -73,7 +73,7 @@ export const KeepLoginWrap = styled.div`
     border: 1px solid ${theme.colors.Gray600};
   }
   span {
-    color:${theme.colors.Gray600};
+    color: ${theme.colors.Gray600};
     font-family: Assistant;
     font-size: 15px;
     font-style: normal;
