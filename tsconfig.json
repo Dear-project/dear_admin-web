@@ -21,7 +21,10 @@
       "@/*": ["./src/*"],
       "@/components/*": ["src/components/*"],
       "@/hooks/*": ["src/hooks/*"],
-      "@constant": ["src/constant/*"]
+      "@constant": ["src/constant/*"],
+      "@queries":["src/queries/*"],
+      "@repositories" :["src/repositories/*"],
+      "@libs" : ["src/libs/*"]
     },
     "baseUrl": "."
   },

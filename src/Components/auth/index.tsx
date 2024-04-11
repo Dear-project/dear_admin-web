@@ -1,7 +1,6 @@
-"use client";
+"use client"
 import useLogin from "@/hooks/Auth/useLogin";
 import * as S from "./style";
-
 
 const LoginPage = () => {
   const { idRef, pwRef, ...login } = useLogin();
@@ -10,7 +9,7 @@ const LoginPage = () => {
     <S.login>
       <S.LoginGroup>
         <S.LoginForm onSubmit={login.handleLogin}>
-          <h1>DEAR.</h1>f
+          <h1>DEAR.</h1>
           <S.InputBox>
             <S.LoginInput
               type="email"
