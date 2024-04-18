@@ -5,7 +5,7 @@ export const login = styled.main`
   display: flex;
   width: 100vw;
   height: 100vh;
-  background: ${theme.colors.Gray100};
+  background: #f4f5f9;
   justify-content: center;
   align-items: center;
 `;
@@ -17,8 +17,8 @@ export const LoginGroup = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: var(--Large, 12px);
-  background: ${theme.colors.White};
-  box-shadow: 4px 4px 8px 0px ${theme.colors.Gray300};
+  background: #fff;
+  box-shadow: 4px 4px 8px 0px #e6e6e6;
 `;
 export const LoginForm = styled.form`
   display: flex;
@@ -29,7 +29,7 @@ export const LoginForm = styled.form`
   height: 100%;
   h1 {
     text-align: center;
-    color: ${theme.colors.Black};
+    color: #000;
     font-family: Assistant;
     font-size: 64px;
     font-style: normal;
@@ -58,7 +58,7 @@ export const LoginInput = styled.input`
 export const BottomBar = styled.div`
   width: 100%;
   height: 1px;
-  background: ${theme.colors.Gray400};
+  background: #d1d1d1;
 `;
 export const KeepLoginWrap = styled.div`
   width: 100%;
@@ -70,10 +70,10 @@ export const KeepLoginWrap = styled.div`
     width: 20px;
     height: 20px;
     border-radius: 5px;
-    border: 1px solid ${theme.colors.Gray600};
+    border: 1px solid #787878;
   }
   span {
-    color: ${theme.colors.Gray600};
+    color: #787878;
     font-family: Assistant;
     font-size: 15px;
     font-style: normal;
@@ -86,8 +86,8 @@ export const LoginButton = styled.button`
   width: 100%;
   height: 55px;
   border-radius: 10px;
-  background: ${theme.colors.Main};
-  color: ${theme.colors.White};
+  background: #0e2764;
+  color: #fff;
   font-family: Assistant;
   font-size: 20px;
   font-style: normal;

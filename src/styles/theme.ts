@@ -10,5 +10,4 @@ export const theme: DefaultTheme = {
     White: "#fff",
     Main: "#0e2764",
   },
-  
 };

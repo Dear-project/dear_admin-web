@@ -1,4 +1,3 @@
-"use client"
 import useLogin from "@/hooks/Auth/useLogin";
 import * as S from "./style";
 
@@ -14,8 +13,7 @@ const LoginPage = () => {
             <S.LoginInput
               type="email"
               placeholder="이메일"
-      
-             ref={idRef}
+              ref={idRef}
             />
             <S.BottomBar></S.BottomBar>
           </S.InputBox>
@@ -23,8 +21,7 @@ const LoginPage = () => {
             <S.LoginInput
               type="password"
               placeholder="비밀번호"
-              
-             ref={pwRef}
+              ref={pwRef}
             />
             <S.BottomBar></S.BottomBar>
           </S.InputBox>
