@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.29.2",
+    "@tanstack/react-query-devtools": "^5.29.2",
+    "@tanstack/react-query-next-experimental": "^5.29.2",
     "@types/js-cookie": "^3.0.6",
     "axios": "^1.6.8",
     "babel-plugin-styled-components": "^2.1.4",
@@ -30,5 +32,6 @@
     "eslint": "^8",
     "eslint-config-next": "14.1.4",
     "typescript": "^5"
-  }
+  },
+  "packageManager": "yarn@4.1.1"
 }

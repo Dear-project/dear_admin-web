@@ -27,6 +27,7 @@
       "@libs" : ["src/libs/*"],
       "@styles" : ["src/styles/*"],
       "@types" : ["src/types/*"],
+      "@utils" : ["src/utils/*"]
     },
     "baseUrl": "."
   },

@@ -1,3 +1,4 @@
+"use client";
 import LoginPage from "@/components/Auth/index";
 import React from "react";
 
