@@ -5,7 +5,7 @@ import {
 } from "@/constant/Token/Token.constant";
 
 class Token {
-  public getTkoen(
+  public getToken(
     key: typeof ACCESS_TOKEN_KEY | typeof REFRESH_TOKEN_KEY
   ): string | undefined {
     return cookies.getCookie(key);

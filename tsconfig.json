@@ -24,6 +24,7 @@
       "@constant": ["src/constant/*"],
       "@queries":["src/queries/*"],
       "@repositories" :["src/repositories/*"],
+      "@config" : ["src/config/*"],
       "@libs" : ["src/libs/*"],
       "@styles" : ["src/styles/*"],
       "@types" : ["src/types/*"],

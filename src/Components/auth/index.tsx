@@ -1,5 +1,5 @@
 import useLogin from "@/hooks/Auth/useLogin";
-import * as S from "./style";
+import * as S from "src/components/Auth/style";
 
 const LoginPage = () => {
   const { idRef, pwRef, ...login } = useLogin();

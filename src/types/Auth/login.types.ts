@@ -1,14 +1,13 @@
-
-
 export interface Login {
-  id: string;
-  pw: string;
+  email: string;
+  password: string;
 }
 
 export interface LoginResponse extends Response {
   data: {
-    accessToken: string;
-    refreshToken: string;
-    
+    data: {
+      accessToken: string;
+      refreshToken: string;
+    };
   };
 }
