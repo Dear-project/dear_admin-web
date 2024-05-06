@@ -10,11 +10,11 @@ const LoginPage = () => {
         <S.LoginForm onSubmit={login.handleLogin}>
           <h1>DEAR.</h1>
           <S.InputBox>
-            <S.LoginInput type="email" placeholder="이메일" ref={idRef} />
+            <S.LoginInput type="email" placeholder="이메일" ref={idRef} onKeyDown={login.handleKeyDown} />
             <S.BottomBar></S.BottomBar>
           </S.InputBox>
           <S.InputBox>
-            <S.LoginInput type="password" placeholder="비밀번호" ref={pwRef} />
+            <S.LoginInput type="password" placeholder="비밀번호" ref={pwRef} onKeyDown={login.handleKeyDown}/>
             <S.BottomBar></S.BottomBar>
           </S.InputBox>
           <S.KeepLoginWrap>

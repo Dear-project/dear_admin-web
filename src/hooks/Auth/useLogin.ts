@@ -15,10 +15,15 @@ const useLogin = () => {
   const idRef = useRef<HTMLInputElement>(null);
   const pwRef = useRef<HTMLInputElement>(null);
   // const postLoginMutation = usePostLoginMutation();
-
   
-  const handleLogin = async(e: FormEvent) => {
-    e.preventDefault();
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      handleLogin();
+    }
+  };
+  
+  const handleLogin = async() => {
+    // e.preventDefault();
     if (idRef.current && pwRef.current) {
 
       await axios.post(`${config.server}/auth`,
@@ -37,6 +42,7 @@ const useLogin = () => {
     idRef,
     pwRef,
     handleLogin,
+    handleKeyDown,
   };
 };
 
