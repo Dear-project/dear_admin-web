@@ -23,6 +23,7 @@
     "react-query": "^3.39.3",
     "styled-components": "^6.1.9",
     "styled-reset": "^4.5.2",
+    "sweetalert2": "^11.10.8",
     "use-client": "^1.2.0"
   },
   "devDependencies": {

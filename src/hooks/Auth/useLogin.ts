@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import Token from "@/libs/Token/Token";
 import axios from "axios";
 import  config from "@/config/config.json";
+import { showToast } from "@/libs/Toast/swal";
 import {LoginResponse} from "src/types/Auth/login.types"
 
 const useLogin = () => {
@@ -18,23 +19,28 @@ const useLogin = () => {
   
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
-      handleLogin();
+      handleLogin(e);
     }
   };
   
-  const handleLogin = async() => {
-    // e.preventDefault();
+  const handleLogin = async(e:FormEvent) => {
+    e.preventDefault();
     if (idRef.current && pwRef.current) {
-
-      await axios.post(`${config.server}/auth`,
+      try{
+        await axios.post(`${config.server}/auth`,
         {
           email: idRef.current.value,
           password: pwRef.current.value,
         }).then((res)=>{
+          showToast("success", "로그인 성공")
           Token.setToken(ACCESS_TOKEN_KEY, res.data.accessToken);
           Token.setToken(REFRESH_TOKEN_KEY, res.data.refreshToken);
           router.push("/");
         })
+      }catch(error){
+        showToast("error", "서버오류")
+      }
+      
     }
   };
 
