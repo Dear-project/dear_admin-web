@@ -1,9 +1,9 @@
 "use client";
-import Sidebar from "@/components/Home/sidbar";
+import Main from "@/components/Home/main";
 const App = () => {
   return (
     <>
-    <Sidebar/>
+    <Main/>
     </>
   );
 };
