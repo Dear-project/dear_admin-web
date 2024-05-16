@@ -4,7 +4,7 @@ import {
   REFRESH_TOKEN_KEY,
 } from "@/constant/Token/Token.constant";
 import { useRouter } from "next/navigation";
-// import { usePostLoginMutation } from "src/queries/Auth/queries";
+import { usePostLoginMutation } from "src/queries/Auth/queries";
 import Token from "@/libs/Token/Token";
 import axios from "axios";
 import  config from "@/config/config.json";
@@ -32,10 +32,11 @@ const useLogin = () => {
           email: idRef.current.value,
           password: pwRef.current.value,
         }).then((res)=>{
+          router.push("/");
           showToast("success", "로그인 성공")
           Token.setToken(ACCESS_TOKEN_KEY, res.data.accessToken);
           Token.setToken(REFRESH_TOKEN_KEY, res.data.refreshToken);
-          router.push("/");
+          
         })
       }catch(error){
         showToast("error", "서버오류")

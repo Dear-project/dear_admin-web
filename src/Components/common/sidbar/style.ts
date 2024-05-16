@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled,{css} from "styled-components";
 
 export const sidebar = styled.aside`
   display: flex;
@@ -22,12 +22,12 @@ export const Logo = styled.div`
 export const sidecontext = styled.div`
   display: flex;
   width: 100%;
-  height: 80%;
+  height:  100%;
 `;
 export const navigation = styled.div`
   display: flex;
   width: 100%;
-  height: 150px;
+  height: 500px;
   gap: 30px;
   align-items: center;
   flex-direction: column;
@@ -37,24 +37,26 @@ export const sideprofile = styled.div`
   width: 100%;
   height: 70px;
 `;
-export const sideblock = styled.div`
+export const sideblock = styled.div<{isSelect: boolean}>`
   display: flex;
   align-items: center;
   gap: 15px;
   width: 90%;
   height: 53px;
   border-radius: 12px;
-  background: #0e2764;
+  background:  ${({ isSelect }) => (isSelect ? "#0e2764" : "white")};
+  
   cursor: pointer;
+  
   img {
     margin-left: 40px;
     display: flex;
     width: 30px;
     height: 30px;
   }
-  a {
-    color: #fff;
+  span {
     font-size: 22px;
     font-weight: 700;
+    color: ${({isSelect})=>(isSelect ? "white" : "#0e2764")};
   }
 `;
