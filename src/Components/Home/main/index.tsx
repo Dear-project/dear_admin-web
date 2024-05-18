@@ -1,8 +1,10 @@
-import Sidebar from "@/components/common/sidbar";
+import * as S from "./style"
+
 const Main =()=>{
     return(
-        <>
-        </>
+        <S.Main>
+            
+        </S.Main>
     )
 }
 export default Main;

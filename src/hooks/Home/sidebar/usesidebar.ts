@@ -15,16 +15,16 @@ const Usesidebar = () => {
   }
 
 
-  const profile = async () => {
-    await dearV1Axios.get(`${config.server}/profile`).then((res) => {
-      console.log(res.data);
+  // const profile = async () => {
+  //   await dearV1Axios.get(`${config.server}/profile`).then((res) => {
+  //     console.log(res.data);
 
-      setProfile(res.data.name);
-    });
-  };
-  useEffect(() => {
-    profile();
-  }, []);
+  //     setProfile(res.data.name);
+  //   });
+  // };
+  // useEffect(() => {
+  //   profile();
+  // }, []);
   return {  selectBlock,profileImg,handleItemClick };
 };
 export default Usesidebar;

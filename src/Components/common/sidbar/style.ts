@@ -3,7 +3,7 @@ import styled,{css} from "styled-components";
 export const sidebar = styled.aside`
   display: flex;
   flex-direction: column;
-  width: 265px;
+  min-width: 265px;
   height: 100vh;
   background: var(--White, #fff);
   box-shadow: 1px -3px 4px 1px rgba(0, 0, 0, 0.25);
@@ -45,7 +45,7 @@ export const sideblock = styled.div<{isSelect: boolean}>`
   height: 53px;
   border-radius: 12px;
   background:  ${({ isSelect }) => (isSelect ? "#0e2764" : "white")};
-  
+
   cursor: pointer;
   
   img {
