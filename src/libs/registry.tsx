@@ -1,17 +1,15 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import { useServerInsertedHTML } from "next/navigation";
-import { ServerStyleSheet, StyleSheetManager } from "styled-components";
-import GlobalStyles from "src/styles/global";
+import { useServerInsertedHTML } from 'next/navigation';
+import type { ReactNode } from 'react';
+import { useState } from 'react';
+import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
 
-export default function StyledComponentsRegistry({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  // Only create stylesheet once with lazy initial state
-  // x-ref: https://reactjs.org/docs/hooks-reference.html#lazy-initial-state
+interface Props {
+  children: ReactNode;
+}
+
+const StyledComponentsRegistry = ({ children }: Props) => {
   const [styledComponentsStyleSheet] = useState(() => new ServerStyleSheet());
 
   useServerInsertedHTML(() => {
@@ -20,12 +18,13 @@ export default function StyledComponentsRegistry({
     return <>{styles}</>;
   });
 
-  if (typeof window !== "undefined") return <>{children}</>;
+  if (typeof window !== 'undefined') return <>{children}</>;
 
   return (
     <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>
-      <GlobalStyles /> 
       {children}
     </StyleSheetManager>
   );
-}
+};
+
+export default StyledComponentsRegistry;

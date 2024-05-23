@@ -1,5 +1,5 @@
 "use client";
-import LoginPage from "@/components/Auth/index";
+import LoginPage from "@/components/auths/index";
 import React from "react";
 
 export default function Login() {

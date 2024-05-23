@@ -22,7 +22,7 @@ export const Logo = styled.div`
 export const sidecontext = styled.div`
   display: flex;
   width: 100%;
-  height:  100%;
+  height: 100%;
 `;
 export const navigation = styled.div`
   display: flex;
@@ -31,6 +31,16 @@ export const navigation = styled.div`
   gap: 30px;
   align-items: center;
   flex-direction: column;
+  a{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 90%;
+  height: 53px;
+  border-radius: 12px;
+
+  }
 `;
 export const sideprofile = styled.div`
   display: flex;
