@@ -13,7 +13,7 @@ const Layout = ({ children }: Props) => {
     <>
       <Container>
         {pathname !== "/login" && <Sidebar />}
-        <Wrap isSign={pathname == "/sign" ? false : true}>{children}</Wrap>
+        <Wrap $isSign={pathname == "/sign" ? false : true}>{children}</Wrap>
       </Container>
     </>
   );

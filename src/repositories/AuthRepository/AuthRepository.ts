@@ -1,7 +1,10 @@
-import { Login, LoginResponse } from "src/types/Auth/login.types";
+import {  LoginResponse } from "src/types/Auth/login.types";
 
 export interface AuthRepository {
-  login(loginData: LoginParam): Promise<LoginResponse>;
+  login(loginData: Login): Promise<LoginResponse>;
 }
 
-export interface LoginParam extends Login {}
+export interface Login {
+  email: string;
+  password: string;
+}

@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
       margin: 0;
       padding: 0;
       color:black;
-      font-family: "Pretendard-Medium" !important;
+      font-family: "Pretendard-Medium" !important
     }
     a {
       text-decoration: none;

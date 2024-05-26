@@ -9,6 +9,7 @@ import member2 from "@/assets/img/home/Vector.png";
 import chat2 from "@/assets/img/home/chat.png";
 import banner2 from "@/assets/img/home/page_info.png";
 import * as S from "./style";
+import defaultImg from "@/assets/img/home/Avatar1.png";
 
 import { useRouter, usePathname } from "next/navigation";
 
@@ -23,13 +24,13 @@ const Sidebar = () => {
       <S.sidecontext>
         <S.navigation>
           <Link href={"/"}>
-            <S.sideblock isSelect={"/" == pathname ? true : false}>
+            <S.sideblock $isSelect={"/" == pathname ? true : false}>
               <Image src={"/" == pathname ? member : member2} alt="구성원" />
               <span>구성원</span>
             </S.sideblock>
           </Link>
           <Link href={"/declaration"}>
-            <S.sideblock isSelect={"/declaration" == pathname ? true : false}>
+            <S.sideblock $isSelect={"/declaration" == pathname ? true : false}>
               <Image
                 src={"/declaration" == pathname ? chat : chat2}
                 alt="문의"
@@ -38,7 +39,7 @@ const Sidebar = () => {
             </S.sideblock>
           </Link>
           <Link href={"/banner"}>
-            <S.sideblock isSelect={"/banner" == pathname ? true : false}>
+            <S.sideblock $isSelect={"/banner" == pathname ? true : false}>
               <Image
                 src={"/banner" == pathname ? banner : banner2}
                 alt="문의"
@@ -49,7 +50,13 @@ const Sidebar = () => {
         </S.navigation>
       </S.sidecontext>
       <S.sideprofile>
-        <div>{sidebar.profileImg}</div>
+        <S.profileInfo>
+          {" "}
+          <Image src={defaultImg} alt="profile"></Image>
+        </S.profileInfo>
+        <S.profileInfo>
+          <span>admin</span>
+        </S.profileInfo>
       </S.sideprofile>
     </S.sidebar>
   );
