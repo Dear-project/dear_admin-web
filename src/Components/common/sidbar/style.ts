@@ -52,12 +52,15 @@ export const profileInfo = styled.div`
   display: flex;
   width: 50px;
   height: 50px;
-  img{
+  margin-left: 30px;
+  img {
     width: 100%;
     height: 100%;
   }
-  span{
+  span {
+    font-size: 20px;
     display: flex;
+    justify-content: center;
     align-items: center;
   }
 `;
