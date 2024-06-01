@@ -11,7 +11,7 @@ import banner2 from "@/assets/img/home/page_info.png";
 import * as S from "./style";
 import defaultImg from "@/assets/img/home/Avatar1.png";
 
-import { useRouter, usePathname } from "next/navigation";
+import {  usePathname } from "next/navigation";
 
 const Sidebar = () => {
   const { ...sidebar } = Usesidebar();
