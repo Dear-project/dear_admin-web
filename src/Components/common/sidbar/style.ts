@@ -22,7 +22,7 @@ export const Logo = styled.div`
 export const sidecontext = styled.div`
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 80%;
 `;
 export const navigation = styled.div`
   display: flex;
@@ -45,8 +45,9 @@ export const sideprofile = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  height: 70px;
+  height: 100px;
   flex-direction: row;
+  cursor: pointer;
 `;
 export const profileInfo = styled.div`
   display: flex;
