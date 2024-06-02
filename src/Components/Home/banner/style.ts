@@ -44,8 +44,10 @@ export const bannerList = styled.div`
     line-height: 119.246%; 
   }
 `;
-export const bannerFrom = styled.form`
+export const bannerFrom = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
   min-width: 400px;
   width: 80%;
   height: 332px;
