@@ -8,14 +8,15 @@ import banner from "@/assets/img/home/page_info2.png";
 import member2 from "@/assets/img/home/Vector.png";
 import chat2 from "@/assets/img/home/chat.png";
 import banner2 from "@/assets/img/home/page_info.png";
-import * as S from "./style";
 import defaultImg from "@/assets/img/home/Avatar1.png";
-
+import Logout from "../../Home/profile/index";
 import {  usePathname } from "next/navigation";
+import * as S from "./style";
 
 const Sidebar = () => {
   const { ...sidebar } = Usesidebar();
   const pathname = usePathname();
+
   return (
     <S.sidebar>
       <S.Logo>
@@ -49,15 +50,16 @@ const Sidebar = () => {
           </Link>
         </S.navigation>
       </S.sidecontext>
-      <S.sideprofile>
+      <S.sideprofile onClick={sidebar.OpenProfileSetting}>
         <S.profileInfo>
           {" "}
           <Image src={defaultImg} alt="profile"></Image>
         </S.profileInfo>
         <S.profileInfo>
-          <span>admin</span>
+          <span>{sidebar.profile.name}</span>
         </S.profileInfo>
       </S.sideprofile>
+      {sidebar.isProfileModel && <Logout onClose={sidebar.OpenProfileSetting}  />}
     </S.sidebar>
   );
 };
