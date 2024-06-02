@@ -6,7 +6,8 @@ import { useEffect, useState, SetStateAction } from "react";
 
 const Usesidebar = () => {
   const router = useRouter();
-  const [profileImg, setProfile] = useState("");
+  const [profileInfo, setProfile] = useState("");
+  const [profileImg, setProfileImg] = useState("");
   const [isProfileModel, setProfileModel] = useState(false);
   const [selectBlock, setSelectBlock] = useState<string>("");
 
@@ -20,11 +21,11 @@ const Usesidebar = () => {
 
   const profile = async () => {
     await dearV1Axios.get(`${config.server}/profile`).then((res) => {
-      console.log(res);
       
-      const data = res.data;
-      
-      return data;
+      const data = res.data.data;
+      console.log(data);
+      setProfile(data.name);
+      setProfileImg(data.Img);
     });
   };
   useEffect(() => {
@@ -32,7 +33,7 @@ const Usesidebar = () => {
   }, []);
   return {
     selectBlock,
-    profileImg,
+    profileInfo,
     handleItemClick,
     OpenProfileSetting,
     isProfileModel,

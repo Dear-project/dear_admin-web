@@ -56,7 +56,7 @@ const Sidebar = () => {
           <Image src={defaultImg} alt="profile"></Image>
         </S.profileInfo>
         <S.profileInfo>
-          <span>{sidebar.profile.name}</span>
+          <span>{sidebar.profileInfo}</span>
         </S.profileInfo>
       </S.sideprofile>
       {sidebar.isProfileModel && <Logout onClose={sidebar.OpenProfileSetting}  />}

@@ -51,7 +51,7 @@ export const sideprofile = styled.div`
 `;
 export const profileInfo = styled.div`
   display: flex;
-  width: 50px;
+  min-width: 50px;
   height: 50px;
   margin-left: 30px;
   img {
