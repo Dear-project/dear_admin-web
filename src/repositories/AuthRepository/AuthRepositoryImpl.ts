@@ -5,7 +5,7 @@ import config from "src/config/config.json";
 
 class AuthRepository  implements AuthRepository{
   public async login(loginData: Login): Promise<LoginResponse> {
-    const { data } = await axios.post(`${config.server}/sign-in`, loginData);
+    const { data } = await axios.post(`${config.server}/auth`, loginData);
     return data;
   }
 }
