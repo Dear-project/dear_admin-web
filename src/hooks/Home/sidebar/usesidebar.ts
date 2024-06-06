@@ -21,7 +21,6 @@ const Usesidebar = () => {
 
   const profile = async () => {
     await dearV1Axios.get(`${config.server}/profile`).then((res) => {
-      
       const data = res.data.data;
       console.log(data);
       setProfile(data.name);
