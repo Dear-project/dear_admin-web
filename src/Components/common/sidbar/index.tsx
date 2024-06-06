@@ -12,9 +12,9 @@ import defaultImg from "@/assets/img/home/Avatar1.png";
 import Logout from "../../Home/profile/index";
 import {  usePathname } from "next/navigation";
 import * as S from "./style";
-import { useGetMemberInfo } from "@/queries/Profile/Profile.query";
+import { useGetProfileInfo } from "@/queries/Profile/Profile.query";
 const Sidebar = () => {
-const {data}=useGetMemberInfo();
+const {data}=useGetProfileInfo();
   const { ...sidebar } = Usesidebar();
   const pathname = usePathname();
 
@@ -57,7 +57,7 @@ const {data}=useGetMemberInfo();
           <Image src={defaultImg} alt="profile"></Image>
         </S.profileInfo>
         <S.profileInfo>
-          <span>{sidebar.profileInfo}</span>
+          <span>{data.data.name}</span>
         </S.profileInfo>
       </S.sideprofile>
       {sidebar.isProfileModel && <Logout onClose={sidebar.OpenProfileSetting}  />}

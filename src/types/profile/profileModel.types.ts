@@ -3,7 +3,7 @@ export interface ProfileAlertProps {
 }
 
 export interface ProfileType {
-  data: [
+  data: 
     {
       id: number;
       email: string;
@@ -16,5 +16,4 @@ export interface ProfileType {
       lclass: string;
       mclass: string;
     }
-  ];
 }

@@ -1,4 +1,4 @@
-import { UseQueryOptions, useQuery, useQueries } from "@tanstack/react-query";
+import { UseQueryOptions, useQuery, useQueries,useSuspenseQuery } from "@tanstack/react-query";
 import { showToast } from "@/libs/Toast/swal";
 import { AxiosError } from "axios";
 import { ProfileType } from "@/types/profile/profileModel.types";
@@ -7,14 +7,10 @@ import Token from "@/libs/Token/Token";
 import { DearQueryKey } from "../queryKeys";
 
 export const useGetProfileInfo = () => {
-  const profileQuery = useQuery<ProfileType, AxiosError,ProfileType, string[]>(
-    DearQueryKey.profile.getMy,
-    () => {
-       ProfileRepositoryImpl.getProfileInfo();
-      
-    }
-  );
-
-  return profileQuery;
+  const useGetprofile = useSuspenseQuery<ProfileType, AxiosError<ProfileType>>({
+    queryKey: [DearQueryKey],
+    queryFn: async () => ProfileRepositoryImpl.getProfileInfo(),
+  });
+  return useGetprofile
 };
 
