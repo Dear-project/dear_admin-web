@@ -1,7 +1,7 @@
 export const MEMBER_TABLE_ITEMS = [
   "사진",
     "이름",
-    "아이디",
+    "권한",
     "이메일",
     "소속",
   ];
