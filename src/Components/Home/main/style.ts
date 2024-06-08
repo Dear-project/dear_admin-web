@@ -4,13 +4,13 @@ export const Main = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 600px;
   width: 100%;
   height: 100vh;
 `;
 export const member = styled.div`
   display: flex;
   flex-direction: column;
-  min-width: 600px;
   width: 95%;
   height: 100%;
 `;

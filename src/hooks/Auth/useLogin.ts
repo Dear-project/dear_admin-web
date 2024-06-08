@@ -36,7 +36,6 @@ const useLogin = () => {
         },{
           onSuccess: (data) => {
             router.push("/");
-            console.log(data.data);
             Token.setToken(ACCESS_TOKEN_KEY, data.data.accessToken);
             Token.setToken(REFRESH_TOKEN_KEY, data.data.refreshToken);
           }, onError: () => {

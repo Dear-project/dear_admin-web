@@ -14,7 +14,7 @@ import {  usePathname } from "next/navigation";
 import * as S from "./style";
 import { useGetProfileInfo } from "@/queries/Profile/Profile.query";
 const Sidebar = () => {
-// const {data}=useGetProfileInfo();
+const {data}=useGetProfileInfo();
   const { ...sidebar } = Usesidebar();
   const pathname = usePathname();
 
@@ -57,7 +57,7 @@ const Sidebar = () => {
           <Image src={defaultImg} alt="profile"></Image>
         </S.profileInfo>
         <S.profileInfo>
-          {/* <span>{data.data.name}</span> */}
+          <span>{data.data.name}</span>
         </S.profileInfo>
       </S.sideprofile>
       {sidebar.isProfileModel && <Logout onClose={sidebar.OpenProfileSetting}  />}

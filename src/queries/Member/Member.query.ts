@@ -4,13 +4,13 @@ import MemberRepositoryImpl from "@/repositories/MemberRepository/MemberReposito
 import { AxiosError } from "axios";
 import { DearQueryKey } from "../queryKeys";
 
-export const useGetMemberList =()=>{
- const useGetMember =useSuspenseQuery<MemberType,AxiosError<MemberType>, MemeberResponse>({
-    queryKey: [DearQueryKey],
-    queryFn: async()=> MemberRepositoryImpl.getMemberList(),
-    staleTime : 1000,
-    gcTime :1000,
-
- })
- return useGetMember.data
-}
+export const useGetMemberList = () => {
+   const useGetMember = useSuspenseQuery<MemberType, AxiosError<MemberType>, MemeberResponse>({
+     queryKey: [DearQueryKey],
+     queryFn: async () => MemberRepositoryImpl.getMemberList(),
+     staleTime: 3600000, // 1시간
+     refetchInterval: 3600000, // 1시간
+   });
+   return useGetMember.data;
+ };
+ 
