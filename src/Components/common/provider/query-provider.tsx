@@ -1,12 +1,13 @@
-'use client';
-import  GlobalStyle from "@/styles/global"
+"use client";
+
+import GlobalStyle from "@/styles/global";
 import {
   QueryClient,
   QueryClientProvider as MaruQueryClientProvider,
-} from '@tanstack/react-query';
+} from "@tanstack/react-query";
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import type { ReactNode } from 'react';
-import { useState } from 'react';
+import type { ReactNode } from "react";
+import { useState } from "react";
 
 interface Props {
   children: ReactNode;
@@ -26,9 +27,9 @@ const QueryClientProvider = ({ children }: Props) => {
 
   return (
     <MaruQueryClientProvider client={queryClient}>
-       <GlobalStyle />
+      <GlobalStyle />
       {children}
-      <ReactQueryDevtools />
+      <ReactQueryDevtools initialIsOpen={true} />
     </MaruQueryClientProvider>
   );
 };

@@ -19,25 +19,23 @@ const Usesidebar = () => {
     setProfileModel((prev) => !prev);
   };
 
-  const profile = async () => {
-    await dearV1Axios.get(`${config.server}/profile`).then((res) => {
-      
-      const data = res.data.data;
-      console.log(data);
-      setProfile(data.name);
-      setProfileImg(data.Img);
-    });
-  };
-  useEffect(() => {
-    profile();
-  }, []);
+  // const profile = async () => {
+  //   await dearV1Axios.get(`${config.server}/profile`).then((res) => {
+  //     const data = res.data.data;
+  //     console.log(data);
+  //     setProfile(data.name);
+  //     setProfileImg(data.Img);
+  //   });
+  // };
+  // useEffect(() => {
+  //   profile();
+  // }, []);
   return {
     selectBlock,
     profileInfo,
     handleItemClick,
     OpenProfileSetting,
     isProfileModel,
-    profile,
   };
 };
 export default Usesidebar;
