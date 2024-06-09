@@ -1,4 +1,3 @@
-'use client'
 import { AxiosRequestConfig } from "axios";
 import {
   ACCESS_TOKEN_KEY,
