@@ -4,5 +4,9 @@ export const DearQueryKey = {
   },
   member:{
     getMeber:"/user",
+  },
+  banner:{
+    get: "/banner",
+    
   }
 }

@@ -1,4 +1,4 @@
-import { dearV1Axios } from "@/libs/axios/CustomAxios";
+import  dearV1Axios  from "@/libs/axios/CustomAxios";
 import { MemberType } from "@/types/member/member.type";
 import { MemberRepository } from "./MemberRepository";
 class MemberRepositoryImpl implements MemberRepository{

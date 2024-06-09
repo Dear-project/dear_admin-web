@@ -1,4 +1,4 @@
-import { dearV1Axios } from "@/libs/axios/CustomAxios";
+import  dearV1Axios  from "@/libs/axios/CustomAxios";
 import { ProfileRepository } from "./ProfileRepository";
 import {  ProfileType } from "@/types/profile/profileModel.types";
 
