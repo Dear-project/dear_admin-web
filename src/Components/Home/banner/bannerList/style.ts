@@ -5,7 +5,7 @@ export const BannerArea = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 13%;
   gap: 25px;
 `;
 export const Bannerinfo = styled.div`
@@ -27,7 +27,6 @@ export const BannerTitle = styled.div`
 `;
 export const BannerImg = styled.div`
   display: flex;
-  background-color: aqua;
   width: 150px;
   height: 80%;
   border-radius: 10px;

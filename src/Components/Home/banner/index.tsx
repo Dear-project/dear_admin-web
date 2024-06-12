@@ -5,13 +5,15 @@ import BannerFrom from "./bannerForm/index";
 import { useGetBannersQuery } from "@/queries/banner/bannerUpload.query";
 const Banner = () => {
   const { data } = useGetBannersQuery();
+  
+  
   return (
     <S.Main>
       <S.bannerListArea>
         <S.bannerList>
           <span>배너목록</span>
-          {data.data.map((data) => (
-            <BannerList key={data.id} data={data}/>
+          {data.data.map((data) => (            
+            <BannerList  data={data}/>
           ))}
         </S.bannerList>
       </S.bannerListArea>

@@ -1,11 +1,11 @@
 import { Response } from "../util/Auth/response.type";
 
 export interface Banner {
-  expireAt: string;
+  expiredAt: string;
   readonly id: number;
-  imageUrl: string;
+  imagePath: string | null;
   redirectUrl: string;
-  status: "ACTIVE" | "DEACTIVETED";
+
   title: string;
 }
 

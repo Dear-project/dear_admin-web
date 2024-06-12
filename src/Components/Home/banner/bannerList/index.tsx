@@ -9,24 +9,28 @@ import Image from "next/image";
 import BannerImge from "@/assets/img/home/Group 383.png";
 import { Banner } from "@/types/banner/banner.type";
 import dateTransform from "@/utils/banner/dateTransform";
-
+import UseHandleBanner from "@/hooks/Home/banner/useHandleBanner";
 interface Props {
+    
     data: Banner;
   }
 
 const BannerList = ({ data }: Props) => {
-    const handleDateTime = dateTransform.hyphen(data.expireAt); 
+const {
+  deleteBanner
+}=UseHandleBanner();
+    const handleDateTime = dateTransform.hyphen(data.expiredAt); 
 
   return (
     <BannerArea>
       <Bannerinfo>
         <BannerTitle>
-          <span style={{ fontSize: "17px" }}>Dear</span>
+          <span style={{ fontSize: "17px" }}>{data.title}</span>
         </BannerTitle>
         <BannerImg>
-          <Image src={BannerImge} alt="배너이미지" />
+          <Image src={data.imagePath !== null ? data.imagePath : BannerImge} alt="배너이미지" />
         </BannerImg>
-        <BannerDeleteButton>삭제</BannerDeleteButton>
+        <BannerDeleteButton onClick={()=>deleteBanner(data.id)}>삭제</BannerDeleteButton>
       </Bannerinfo>
     </BannerArea>
   );
