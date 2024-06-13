@@ -11,7 +11,6 @@ import { Banner } from "@/types/banner/banner.type";
 import dateTransform from "@/utils/banner/dateTransform";
 import UseHandleBanner from "@/hooks/Home/banner/useHandleBanner";
 interface Props {
-    
     data: Banner;
   }
 
@@ -20,7 +19,6 @@ const {
   deleteBanner
 }=UseHandleBanner();
     const handleDateTime = dateTransform.hyphen(data.expiredAt); 
-
   return (
     <BannerArea>
       <Bannerinfo>
