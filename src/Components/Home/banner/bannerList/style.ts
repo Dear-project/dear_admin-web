@@ -5,13 +5,11 @@ export const BannerArea = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 13%;
-  gap: 25px;
+  height: 76px;
 `;
 export const Bannerinfo = styled.div`
   display: flex;
   width: 85%;
-  height: 76px;
   align-items: center;
   justify-content: space-evenly;
   border-radius: var(--Large, 12px);
