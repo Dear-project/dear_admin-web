@@ -1,4 +1,4 @@
-import { useSuspenseQuery, useQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { MemberType , MemeberResponse} from "@/types/member/member.type";
 import MemberRepositoryImpl from "@/repositories/MemberRepository/MemberRepositoryImpl";
 import { AxiosError } from "axios";

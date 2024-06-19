@@ -9,7 +9,6 @@ const LoginPage = () => {
       <S.LoginGroup>
         <S.LoginForm onSubmit={login.handleLogin}>
           <h1>DEAR.</h1>
-          <h3>ADMIN</h3>
           <S.InputBox>
             <S.LoginInput type="email" placeholder="이메일" ref={idRef} onKeyDown={login.handleKeyDown} />
             <S.BottomBar></S.BottomBar>

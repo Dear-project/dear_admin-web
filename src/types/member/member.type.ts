@@ -14,5 +14,5 @@ export interface MemberType {
 }
 
 export interface MemeberResponse extends Response {
-  data: MemberType[] ;
+  data: MemberType[];
 }

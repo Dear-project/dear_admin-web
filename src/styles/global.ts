@@ -6,7 +6,7 @@ import reset from "styled-reset";
 const GlobalStyle = createGlobalStyle`
 @font-face {
     font-family: "Pretendard-Medium";
-    src: url("../assets/font/Pretendard-Medium.otf");
+    src: url("../public/Pretendard-Medium.otf");
   }
       ${reset}
     * {

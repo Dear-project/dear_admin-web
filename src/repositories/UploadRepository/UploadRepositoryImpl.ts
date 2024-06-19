@@ -1,4 +1,4 @@
-import dearV1Axios from "@/libs/axios/CustomAxios";
+import dearV1Axios  from "@/libs/axios/CustomAxios";
 import {
   PostUploadParams,
   PostUploadResponse,
@@ -7,10 +7,9 @@ import {
 
 class UploadRepositoryImpl implements UploadRepository {
   public async postUpload({
-    formdata,
-    dataID,
+    formData,
   }: PostUploadParams): Promise<PostUploadResponse> {
-    const { data } = await dearV1Axios.post(`/banner/${dataID.id}`, formdata);
+    const { data } = await dearV1Axios.post("/upload", formData);
     return data;
   }
 }

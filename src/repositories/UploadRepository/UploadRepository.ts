@@ -1,18 +1,13 @@
 import { Response } from "@/types/util/Auth/response.type";
 
 export interface UploadRepository {
-  postUpload({
-    formdata,
-    dataID,
-  }: PostUploadParams): Promise<PostUploadResponse>;
+  postUpload({ formData }: PostUploadParams): Promise<PostUploadResponse>;
 }
 
 export interface PostUploadParams {
-  
-  formdata: FormData;
-  dataID: {
-    id: number;
-  };
+  formData: FormData;
 }
 
-export interface PostUploadResponse extends Response {}
+export interface PostUploadResponse extends Response {
+  data: string;
+}

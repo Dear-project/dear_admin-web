@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "@/styles/theme";
 
 export const login = styled.main`
   display: flex;
@@ -9,7 +10,6 @@ export const login = styled.main`
   align-items: center;
 `;
 export const LoginGroup = styled.div`
-  position: relative;
   display: flex;
   min-width: 500px;
   width: 35vw;
@@ -30,18 +30,11 @@ export const LoginForm = styled.form`
   h1 {
     text-align: center;
     color: #000;
-
+    font-family: Assistant;
     font-size: 64px;
     font-style: normal;
     font-weight: 800;
     line-height: 130.702%;
-  }
-  h3 {
-    z-index: 5;
-    font-weight: 600;
-    top: 160px;
-    right: 100px;
-    position: absolute;
   }
 `;
 export const InputBox = styled.div`

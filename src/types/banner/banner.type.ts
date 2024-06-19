@@ -1,13 +1,14 @@
 import { Response } from "../util/Auth/response.type";
 
 export interface Banner {
-  expiredAt: string;
+  expireAt: string;
   readonly id: number;
-  imagePath: string | null;
+  imageUrl: string;
   redirectUrl: string;
+  status: "ACTIVE" | "DEACTIVETED";
   title: string;
 }
 
 export interface BannersResponse extends Response {
-  data: Banner[] ;
+  data: Banner[];
 }

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const bannerMain = styled.div`
+export const bannerMain = styled.form`
   position: relative;
   display: flex;
   justify-content: space-evenly;

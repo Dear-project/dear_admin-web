@@ -19,7 +19,7 @@ const ACCESS_TOKEN=Token.getToken(ACCESS_TOKEN_KEY);
   });
 };
 
-export const alimoV1Axios = createAxiosInstance({
+export const dearV1Axios = createAxiosInstance({
   baseURL: CONFIG.server,
   headers: {
     [REQUEST_TOKEN_KEY]: `Bearer ${token.getToken(ACCESS_TOKEN_KEY)}`,
@@ -27,8 +27,8 @@ export const alimoV1Axios = createAxiosInstance({
 });
 
 export const alimoV1AxiosSetAccessToken = (newToken: string) => {
-  alimoV1Axios.defaults.headers.common[REQUEST_TOKEN_KEY] = `Bearer ${newToken}`;
+  dearV1Axios.defaults.headers.common[REQUEST_TOKEN_KEY] = `Bearer ${newToken}`;
 };
 
-alimoV1Axios.interceptors.request.use(requestHandler as any, (response) => response);
-alimoV1Axios.interceptors.response.use((response) => response, ResponseHandler);
+dearV1Axios.interceptors.request.use(requestHandler as any, (response) => response);
+dearV1Axios.interceptors.response.use((response) => response, ResponseHandler);
