@@ -5,7 +5,7 @@ import {
   QueryClient,
   QueryClientProvider as MaruQueryClientProvider,
 } from "@tanstack/react-query";
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import type { ReactNode } from "react";
 import { useState } from "react";
 
@@ -20,6 +20,7 @@ const QueryClientProvider = ({ children }: Props) => {
         defaultOptions: {
           queries: {
             refetchOnWindowFocus: false,
+            refetchOnReconnect: false,
           },
         },
       })

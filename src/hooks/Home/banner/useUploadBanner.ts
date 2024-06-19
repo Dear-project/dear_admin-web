@@ -1,39 +1,36 @@
 import { showToast } from "@/libs/Toast/swal";
 import { useUploadBannerMutation } from "@/queries/banner/bannerUpload.query";
-import { useUploadImageMutation } from "@/queries/banner/imgUpload.query";
-import { ChangeEvent, useState } from "react";
+ import { useUploadImageMutation } from "@/queries/banner/imgUpload.query";
+import { ChangeEvent, useEffect, useState } from "react";
 import dayjs from "dayjs";
+import { useQueryClient } from "@tanstack/react-query";
+import { DearQueryKey } from "@/queries/queryKeys";
+import UploadRepositoryImpl from "@/repositories/UploadRepository/UploadRepositoryImpl";
 
 const useUplodaBanner = () => {
-
   const uploadBannerMutation = useUploadBannerMutation();
   const [fileName, setFileName] = useState<File>();
-  const uploadMutation = useUploadImageMutation();
+   const uploadMutation = useUploadImageMutation();
   const [uploadData, setUploadData] = useState({
-    expireAt: "",
-    image: "",
     title: "",
     url: "",
+    image: "",
+    expiredAt: "",
   });
+  const [formData, setFormData] = useState<FormData>(new FormData());
+  const queryClient = useQueryClient();
 
-  const onChangeImage = (event: ChangeEvent<HTMLInputElement> | any) => {
-    let image: File;
-    image = event.target.files[0];
-    setFileName(image);
 
-    const formData = new FormData();
-    formData.append("file", image);
+  const onChangeImage = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      let image = e.target.files[0];
 
-    uploadMutation.mutate(
-      {
-        formData,
-      },
-      {
-        onSuccess: (data) => {
-          setUploadData((prev) => ({ ...prev, image: data.data }));
-        },
-      }
-    );
+      setFileName(image);
+      const formData = new FormData();
+      formData.append("files", image);
+      setFormData(formData)
+      setUploadData((prev) => ({ ...prev, image: image.name }));
+    }
   };
 
   const onChangeUploadData = (e: ChangeEvent<HTMLInputElement>) => {
@@ -42,54 +39,71 @@ const useUplodaBanner = () => {
   };
 
   const checkRequiredRequest = () => {
-    const { title, url, image, expireAt } = uploadData;
+    const { title, url, image, expiredAt } = uploadData;
 
     if (title.trim() === "") {
-      showToast("error","제목을 입력해주세요.");
+      showToast("error", "제목을 입력해주세요.");
       return false;
     }
 
     if (url.trim() === "") {
-      showToast("error","링크를 입력해주세요.");
+      showToast("error", "링크를 입력해주세요.");
+      return false;
+    }
+    if (image.trim() === "") {
+      showToast("error", "이미지를 선택해주세요");
+      return false;
+    }
+    if (expiredAt === "") {
+      showToast("error", "날짜를 선택해주세요.");
       return false;
     }
 
-    if (image === "") {
-      showToast("error","이미지를 선택해주세요.");
-      return false;
-    }
-
-    if (expireAt === "") {
-      showToast("error","날짜를 선택해주세요.");
-      return false;
-    }
-
-    if (dayjs(expireAt).isBefore(dayjs().subtract(1, "day"))) {
-      showToast("error","오늘 날짜 이후로 선택해주세요.");
+    if (dayjs(expiredAt).isBefore(dayjs().subtract(1, "day"))) {
+      showToast("error", "오늘 날짜 이후로 선택해주세요.");
       return false;
     }
 
     return true;
   };
 
+            
+console.log("hh12");
+
+
   const onSubmitUploadData = () => {
     if (checkRequiredRequest()) {
+      const { image, ...requestData } = uploadData;
+
       uploadBannerMutation.mutate(
         {
-          ...uploadData,
-          expireAt: uploadData.expireAt + "T23:59:59",
+          ...requestData,
+          expiredAt: requestData.expiredAt + "T01:23:42.354Z",
         },
         {
-          onSuccess: () => {
+          onSuccess: (res) => {
+            uploadMutation.mutate(
+              {
+                formdata : formData,
+                dataID: { id: res.data.id },
+              },
+              {
+                onSuccess: (data) => {
+              showToast("success","배너 생성성공")
+              queryClient.invalidateQueries({queryKey:[DearQueryKey.banner.get]})
+                },
+              }
+            );
+
             setUploadData({
-              expireAt: "",
-              image: "",
+              expiredAt: "",
               title: "",
+              image: "",
               url: "",
             });
           },
           onError: () => {
-            showToast("error","배너 등록 실패");
+            showToast("error", "배너 등록 실패");
           },
         }
       );

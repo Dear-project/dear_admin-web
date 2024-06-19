@@ -30,6 +30,7 @@ export const bannerList = styled.div`
   border: 3px solid #f1f1f1;
   border-radius: 20px;
   background-color: #fff;
+  overflow: hidden;
   span:nth-child(1) {
     display: flex;
     margin-left: 30px;
@@ -41,8 +42,16 @@ export const bannerList = styled.div`
     font-size: 24px;
     font-style: normal;
     font-weight: 700;
-    line-height: 119.246%; 
+    line-height: 119.246%;
   }
+`;
+export const bannerOverList = styled.div`
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  width: 100%;
+  height: 200vh;
+  gap: 30px;
 `;
 export const bannerFrom = styled.div`
   display: flex;

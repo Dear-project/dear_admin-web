@@ -4,8 +4,8 @@ import { useMutation } from "@tanstack/react-query";
 
 export const useUploadImageMutation = () => {
   const mutation = useMutation({
-    mutationFn:({ formData }: PostUploadParams) =>
-      UploadRepositoryImpl.postUpload({ formData })
+    mutationFn: ({ formdata, dataID }: PostUploadParams) =>
+      UploadRepositoryImpl.postUpload({ formdata, dataID }),
   });
   return mutation;
 };

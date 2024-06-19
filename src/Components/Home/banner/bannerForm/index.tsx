@@ -8,6 +8,8 @@ const BannerFrom = () => {
     fileName,
     uploadData,
   } = useUplodaBanner();
+
+  
   return (
     <S.bannerMain>
       <S.bannerBlock>
@@ -23,8 +25,8 @@ const BannerFrom = () => {
         <span>보관기간</span>
         <S.bannerInput
           type="date"
-          name="expireAt"
-          value={uploadData.expireAt}
+          name="expiredAt"
+          value={uploadData.expiredAt}
           onChange={onChangeUploadData}
         ></S.bannerInput>
       </S.bannerBlock>
@@ -40,7 +42,7 @@ const BannerFrom = () => {
       <S.bannerBlock style={{ width: "203px" }}>
         <span>이미지</span>
         <S.bannerInput
-          value={uploadData.image ? fileName?.name : "파일을 선택해주세요"}
+          value={ uploadData.image ? fileName?.name : "이미지를 입력해주세요" }
           disabled
         ></S.bannerInput>
       </S.bannerBlock>

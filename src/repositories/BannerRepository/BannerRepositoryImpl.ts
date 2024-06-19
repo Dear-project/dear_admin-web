@@ -2,6 +2,7 @@ import {
   PostBannerParam,
   BannerRepository,
   DeleteBannerByIdParam,
+  PostBannerResponse,
 } from "./BannerRepository";
 import dearV1Axios from "@/libs/axios/CustomAxios";
 import { BannersResponse } from "../../types/banner/banner.type";
@@ -14,7 +15,7 @@ class BannerRepositoryImpl implements BannerRepository {
     return data;
   }
 
-  public async postBanners(uploadData: PostBannerParam): Promise<Response> {
+  public async postBanners(uploadData: PostBannerParam): Promise<PostBannerResponse> {
     const { data } = await dearV1Axios.post("/banner", uploadData);
     return data;
   }

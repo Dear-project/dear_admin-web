@@ -1,6 +1,5 @@
 import axios from "axios";
 import config from "@/config/config.json";
-import { dearV1Axios } from "@/libs/axios/CustomAxios";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState, SetStateAction } from "react";
 
