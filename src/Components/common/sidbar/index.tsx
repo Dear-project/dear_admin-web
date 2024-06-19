@@ -57,7 +57,7 @@ const {data}=useGetProfileInfo();
           <Image src={defaultImg} alt="profile"></Image>
         </S.profileInfo>
         <S.profileInfo>
-          <span>{data.data.name}</span>
+          <span>{data?.data.name}</span>
         </S.profileInfo>
       </S.sideprofile>
       {sidebar.isProfileModel && <Logout onClose={sidebar.OpenProfileSetting}  />}
