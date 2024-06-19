@@ -5,10 +5,9 @@ export interface Banner {
   readonly id: number;
   imagePath: string | null;
   redirectUrl: string;
-
   title: string;
 }
 
 export interface BannersResponse extends Response {
-  data: Banner[];
+  data: Banner[] ;
 }

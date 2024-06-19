@@ -1,9 +1,7 @@
 import { BannersResponse } from "../../types/banner/banner.type";
 
 export interface BannerRepository {
-  
-
-  postBanners(uploadData: PostBannerParam): Promise<Response>;
+  postBanners(uploadData: PostBannerParam): Promise<PostBannerResponse>;
 
   getBanners(): Promise<BannersResponse>;
 
@@ -11,12 +9,16 @@ export interface BannerRepository {
 }
 
 export interface PostBannerParam {
-  expireAt: string;
-  image: string;
   title: string;
   url: string;
+  expiredAt: string;
 }
 
+export interface PostBannerResponse {
+  data: {
+    id: number;
+  };
+}
 
 export interface DeleteBannerByIdParam {
   id: number;

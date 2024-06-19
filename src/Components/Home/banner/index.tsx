@@ -13,7 +13,7 @@ const Banner = () => {
         <S.bannerList>
           <span>배너목록</span>
           <S.bannerOverList >
-          {data.data.map((data) => (            
+          {data?.data.map((data) => (            
             <BannerList  data={data}/>
           ))}
           </S.bannerOverList>
@@ -28,3 +28,6 @@ const Banner = () => {
   );
 };
 export default Banner;
+
+
+

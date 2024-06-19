@@ -8,6 +8,7 @@ const BannerFrom = () => {
     fileName,
     uploadData,
   } = useUplodaBanner();
+
   
   return (
     <S.bannerMain>
@@ -41,7 +42,7 @@ const BannerFrom = () => {
       <S.bannerBlock style={{ width: "203px" }}>
         <span>이미지</span>
         <S.bannerInput
-          value={ fileName !== undefined ? fileName : "이미지를 입력해주세요" }
+          value={ uploadData.image ? fileName?.name : "이미지를 입력해주세요" }
           disabled
         ></S.bannerInput>
       </S.bannerBlock>

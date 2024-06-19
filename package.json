@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint"
   },
+
   "dependencies": {
     "@tanstack/react-query": "^5.29.2",
     "@tanstack/react-query-devtools": "^5.29.2",
