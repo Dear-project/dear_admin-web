@@ -1,4 +1,4 @@
-"use client"
+
 import Sidebar from "../sidbar/index";
 import { Container, Wrap } from "./style";
 import { usePathname, useRouter } from "next/navigation";
