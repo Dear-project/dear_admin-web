@@ -20,7 +20,7 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@/components/*": ["src/components/*"],
+      "@/Components/*": ["src/Components/*"],
       "@/hooks/*": ["src/hooks/*"],
       "@constant": ["src/constant/*"],
       "@queries":["src/queries/*"],

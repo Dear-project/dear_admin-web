@@ -1,4 +1,4 @@
-import Banner from "@/components/Home/banner/index"
+import Banner from "@/Components/Home/banner/index"
 const banner =()=>{
 return(
     <>
