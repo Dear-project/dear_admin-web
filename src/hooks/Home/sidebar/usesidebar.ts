@@ -1,9 +1,12 @@
-import { useRouter } from "next/navigation";
-import { useState, SetStateAction } from "react";
+import axios from "axios";
+import config from "@/config/config.json";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState, SetStateAction } from "react";
 
 const Usesidebar = () => {
   const router = useRouter();
   const [profileInfo, setProfile] = useState("");
+  const [profileImg, setProfileImg] = useState("");
   const [isProfileModel, setProfileModel] = useState(false);
   const [selectBlock, setSelectBlock] = useState<string>("");
 
@@ -11,11 +14,21 @@ const Usesidebar = () => {
     setSelectBlock(name);
     router.push(`/${name}`);
   };
-
   const OpenProfileSetting = () => {
     setProfileModel((prev) => !prev);
   };
 
+  // const profile = async () => {
+  //   await dearV1Axios.get(`${config.server}/profile`).then((res) => {
+  //     const data = res.data.data;
+  //     console.log(data);
+  //     setProfile(data.name);
+  //     setProfileImg(data.Img);
+  //   });
+  // };
+  // useEffect(() => {
+  //   profile();
+  // }, []);
   return {
     selectBlock,
     profileInfo,
@@ -24,5 +37,4 @@ const Usesidebar = () => {
     isProfileModel,
   };
 };
-
 export default Usesidebar;

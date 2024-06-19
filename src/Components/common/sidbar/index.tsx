@@ -64,5 +64,4 @@ const {data}=useGetProfileInfo();
     </S.sidebar>
   );
 };
-
 export default Sidebar;

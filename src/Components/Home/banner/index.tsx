@@ -1,3 +1,4 @@
+"use client"
 import * as S from "./style";
 import BannerList from "./bannerList";
 import BannerFrom from "./bannerForm/index";
