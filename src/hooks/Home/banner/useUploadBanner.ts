@@ -1,3 +1,4 @@
+'use client'
 import { showToast } from "@/libs/Toast/swal";
 import { useUploadBannerMutation } from "@/queries/banner/bannerUpload.query";
  import { useUploadImageMutation } from "@/queries/banner/imgUpload.query";
