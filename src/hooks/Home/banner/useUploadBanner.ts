@@ -1,11 +1,10 @@
 import { showToast } from "@/libs/Toast/swal";
 import { useUploadBannerMutation } from "@/queries/banner/bannerUpload.query";
  import { useUploadImageMutation } from "@/queries/banner/imgUpload.query";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import dayjs from "dayjs";
 import { useQueryClient } from "@tanstack/react-query";
 import { DearQueryKey } from "@/queries/queryKeys";
-import UploadRepositoryImpl from "@/repositories/UploadRepository/UploadRepositoryImpl";
 
 const useUplodaBanner = () => {
   const uploadBannerMutation = useUploadBannerMutation();
@@ -66,9 +65,6 @@ const useUplodaBanner = () => {
 
     return true;
   };
-
-            
-console.log("hh12");
 
 
   const onSubmitUploadData = () => {
