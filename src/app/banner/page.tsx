@@ -1,4 +1,5 @@
-import Banner from "@/components/Home/banner/index"
+"use client";
+import Banner from "@/Components/Home/banner/index"
 const banner =()=>{
 return(
     <>

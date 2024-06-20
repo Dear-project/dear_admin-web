@@ -1,6 +1,6 @@
 import * as S from "./style";
-import Table from "./table/index";
-import MemberTable from "./memberTable";
+import Table from "../table/index";
+import MemberTable from "./memberTable/index";
 import { SearchBar } from "../searchBar/searchBar";
 import { MEMBER_TABLE_ITEMS } from "@/constant/member/Member.constant";
 import { useMemberSearchStore } from "@/store/member";
