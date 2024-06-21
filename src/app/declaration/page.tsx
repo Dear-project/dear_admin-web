@@ -1,9 +1,8 @@
-import Declaration from "@/components/Home/declaration/index"
+"use client";
+import Declaration from "@/Components/Home/declaration/index"
 const DeclarationPage = ()=>{
     return(
-        <>
-        hello world
-        </>
+        <Declaration/>
     )
 }
 export default DeclarationPage;
