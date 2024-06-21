@@ -2,7 +2,7 @@ import { Response } from "../util/Auth/response.type";
 
 export interface Banner {
   expiredAt: string;
-  readonly id: number;
+  id: number;
   imagePath: string | null;
   redirectUrl: string;
   title: string;

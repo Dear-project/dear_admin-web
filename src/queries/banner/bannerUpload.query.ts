@@ -2,8 +2,6 @@ import { AxiosError } from "axios";
 import {
   useQuery,
   useMutation,
-  useSuspenseQuery,
-  useQueries
 } from "@tanstack/react-query";
 import { BannersResponse } from "@/types/banner/banner.type";
 import BannerRepositoryImpl from "../../repositories/BannerRepository/BannerRepositoryImpl";

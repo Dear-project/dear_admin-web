@@ -52,6 +52,9 @@ export const bannerOverList = styled.div`
   width: 100%;
   height: 200vh;
   gap: 30px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 export const bannerFrom = styled.div`
   display: flex;
