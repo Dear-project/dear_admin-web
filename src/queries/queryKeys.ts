@@ -7,6 +7,9 @@ export const DearQueryKey = {
   },
   banner:{
     get: "/banner",
-    
+  
+  },
+  declaration:{
+    getDeclaration:"/declaration",
   }
 }
