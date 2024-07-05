@@ -21,6 +21,11 @@ const QueryClientProvider = ({ children }: Props) => {
           queries: {
             refetchOnWindowFocus: false,
             refetchOnReconnect: false,
+            throwOnError: true,
+
+          },
+          mutations: {
+            throwOnError: true,
           },
         },
       })

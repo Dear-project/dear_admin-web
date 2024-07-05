@@ -6,6 +6,7 @@ export const tbody = styled.tbody`
   display: flex;
   flex-direction: column;
   white-space: normal;
+
 `;
 export const TR = styled.tr`
   width: 100%;
@@ -25,6 +26,7 @@ export const TD = styled.td`
   font-size: 16px;
   line-height: 20px;
   overflow-x: auto;
+  width: 120px;
   img {
     width: 40px;
     height: 40px;
