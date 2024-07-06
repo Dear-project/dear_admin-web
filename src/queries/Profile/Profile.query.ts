@@ -10,8 +10,8 @@ export const useGetProfileInfo = () => {
   const useGetprofile = useQuery<ProfileType, AxiosError<ProfileType>>({
     queryKey: [DearQueryKey],
     queryFn: async () => ProfileRepositoryImpl.getProfileInfo(),
-    staleTime: 3600000, // 1시간
-     refetchInterval: 3600000, // 1시간
+    gcTime: 1000 * 60 * 60, 
+    staleTime: 1000 * 60 * 5,
   }
   
 );

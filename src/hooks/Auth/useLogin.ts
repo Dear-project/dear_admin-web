@@ -8,10 +8,7 @@ import { usePostLoginMutation } from "src/queries/Auth/queries";
 import Token from "@/libs/Token/Token";
 import { showToast } from "@/libs/Toast/swal";
 
-interface Login {
-  email: string;
-  password: string;
-}
+
 
 const useLogin = () => {
   const router = useRouter();
