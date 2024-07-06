@@ -18,7 +18,6 @@ export const SearchBar = ({
           <AiOutlineSearch />
         </SearchBarIcon>
         <SearchBarInput
-          placeholder="검색어 입력 후 Enter key를 누르세요"
           value={value}
           onChange={(e) => onChange(e.target.value)}
         />

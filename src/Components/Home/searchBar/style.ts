@@ -10,9 +10,10 @@ export const SearchBarInput = styled.input`
 `;
 
 export const SearchBarContainer = styled.form`
+  margin-bottom: 30px;
   width: 260px;
-  height: 35px;
-  border-radius: 5px;
+  height: 40px;
+  border-radius: 12px;
   background-color: #eeeeee;
   display: flex;
   align-items: center;
@@ -27,7 +28,7 @@ export const SearchBarContainer = styled.form`
 export const SearchBarIcon = styled.div`
   width: 13px;
   height: 13px;
-  font-size: 13px;
+  font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;

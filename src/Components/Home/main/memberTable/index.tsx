@@ -11,11 +11,11 @@ const MemberTable = () => {
   const  searchValue = useMemberSearchStore();
   console.log(data);
 
-  
+
   return (
     <>
       <S.tbody>
-        {data.map((member: MemberType) => (
+        {SortAndFilterMember(searchValue, data).map((member: MemberType) => (
           <S.TR key={member.UserId}>
             <S.TD>
               <Image src={defaultImg} alt="프로필사진" />
