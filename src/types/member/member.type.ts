@@ -2,9 +2,9 @@ import { Response } from "../util/Auth/response.type";
 
 export interface MemberType {
   UserId: number;
+  email: string
   name: string;
   birthDay: string;
-  type: string;
   userStatus: string;
   role: string;
   lClass: string;
