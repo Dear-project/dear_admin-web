@@ -27,6 +27,7 @@ export const TD = styled.td`
   line-height: 20px;
   overflow-x: auto;
   width: 120px;
+  text-overflow:ellipsis;
   img {
     width: 40px;
     height: 40px;

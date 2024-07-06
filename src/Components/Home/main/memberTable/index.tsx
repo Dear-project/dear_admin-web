@@ -21,8 +21,8 @@ const MemberTable = () => {
               <Image src={defaultImg} alt="프로필사진" />
             </S.TD>
             <S.TD>{member.name}</S.TD>
-            <S.TD>{member.type}</S.TD>
             <S.TD>{member.userStatus}</S.TD>
+            <S.TD>{member.email}</S.TD>
             <S.TD>{member.schoolName}</S.TD>
           </S.TR>
         ))}
