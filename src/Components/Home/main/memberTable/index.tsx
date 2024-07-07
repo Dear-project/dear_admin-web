@@ -9,9 +9,7 @@ const MemberTable = () => {
   
   const { data } = useGetMemberList();
   const  searchValue = useMemberSearchStore();
-  console.log(data);
-
-
+  
   return (
     <>
       <S.tbody>
