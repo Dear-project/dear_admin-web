@@ -1,4 +1,3 @@
-"use client";
 import * as S from "./style";
 import Table from "../table/index";
 import MemberTable from "./memberTable/index";
