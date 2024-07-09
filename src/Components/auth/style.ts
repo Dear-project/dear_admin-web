@@ -37,11 +37,8 @@ export const LoginForm = styled.form`
     line-height: 130.702%;
   }
   h3 {
-    z-index: 5;
+    text-align: end;
     font-weight: 600;
-    top: 160px;
-    right: 100px;
-    position: absolute;
   }
 `;
 export const InputBox = styled.div`
