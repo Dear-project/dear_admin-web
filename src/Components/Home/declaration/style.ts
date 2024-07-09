@@ -16,6 +16,7 @@ export const Direction = styled.div`
 `;
 export const searchBox = styled.div`
   display: flex;
+  align-items: flex-end;
   width: 100%;
   height: 200px;
 `;

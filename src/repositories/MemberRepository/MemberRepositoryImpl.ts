@@ -1,6 +1,7 @@
 import dearAxios from "@/libs/axios/CustomAxios";
 import { MemeberResponse } from "@/types/member/member.type";
-import { MemberRepository } from "./MemberRepository";
+import { MemberRepository, RejectMemberResponse, UserID } from "./MemberRepository";
+
 class MemberRepositoryImpl implements MemberRepository {
   public async getMemberList(): Promise<MemeberResponse> {
     try {
@@ -11,8 +12,16 @@ class MemberRepositoryImpl implements MemberRepository {
       throw error;
     }
   }
-  public async deleteMember(){
-    
+  public async rejectMember(id: UserID): Promise<RejectMemberResponse> {
+    try {
+      const { data } = await dearAxios.patch(`/user/reject${ id }`);
+      return data;
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
   }
+  
 }
+
 export default new MemberRepositoryImpl();

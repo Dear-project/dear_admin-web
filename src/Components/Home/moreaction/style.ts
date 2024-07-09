@@ -8,7 +8,7 @@ export const MoreButtonMain = styled.div<{idx : number}>`
   align-items: center;
   flex-direction: column;
   width: 170px;
-  height: 73px;
+  height: 50px;
   border-radius: 4px;
   background: #fff;
   box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.08);
@@ -34,9 +34,9 @@ export const suspensionButton = styled.div`
   display: flex;
   align-items: center;
   width: 90%;
-  height: 50%;
+  height: 100%;
   color: #000;
   font-size: 14px;
   font-weight: 500;
-  border-bottom: 2px solid #f4f5f9;
+  /* border-bottom: 2px solid #f4f5f9; */
 `;

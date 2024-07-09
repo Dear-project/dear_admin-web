@@ -18,3 +18,8 @@ export const useGetMemberList = () => {
   });
   return useGetMember.data;
 };
+
+export const memebrQuit = ()=>{
+  
+}
+

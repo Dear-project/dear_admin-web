@@ -8,6 +8,7 @@ import { useGetMemberList } from "@/queries/Member/Member.query";
 import setting from "@/assets/img/home/ic_round-more-horiz.svg";
 import UseMember from "@/hooks/Home/member/useMember";
 import MoreButton from "../../moreaction";
+import { member } from "../style";
 
 const MemberTable = () => {
   const { data } = useGetMemberList();
@@ -29,7 +30,7 @@ const MemberTable = () => {
               <Image
                 src={setting}
                 alt="설정"
-                onClick={()=>useMember.memberBanSetting(idx)}
+                onClick={()=>useMember.memberBanSetting({idx, userID: member.UserId})}
               ></Image>
             </S.TD>
           </S.TR>
