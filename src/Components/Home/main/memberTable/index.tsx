@@ -2,7 +2,7 @@ import defaultImg from "@/assets/img/home/Avatar1.png";
 import Image from "next/image";
 import * as S from "./style";
 import { MemberType } from "@/types/member/member.type";
-import { SortAndFilterMember } from "@/utils/member/SortAndFilterMember";
+import { FilterMember } from "@/utils/member/FilterMember";
 import { useMemberSearchStore } from "@/store/member/index";
 import { useGetMemberList } from "@/queries/Member/Member.query";
 import setting from "@/assets/img/home/ic_round-more-horiz.svg";
@@ -17,7 +17,7 @@ const MemberTable = () => {
   return (
     <>
       <S.tbody>
-        {SortAndFilterMember(searchValue, data).map((member: MemberType, idx) => (
+        {FilterMember(searchValue, data).map((member: MemberType, idx) => (
           <S.TR key={member.UserId}>
             <S.TD>
               <Image src={defaultImg} alt="프로필사진" />
