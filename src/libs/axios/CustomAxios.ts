@@ -16,12 +16,13 @@ const axiosRequestConfig: AxiosRequestConfig = {
   },
 };
 
-const dearV1Axios = axios.create(axiosRequestConfig);
+const dearAxios = axios.create(axiosRequestConfig);
 
-dearV1Axios.interceptors.request.use(requestInterceptor, (err) => err);
-
-export default dearV1Axios;
+dearAxios.interceptors.request.use(requestInterceptor, (err) => err);
+dearAxios.interceptors.response.use((res)=>res, )
+export default dearAxios;
 
 export const setAccessToken = (token: string) => {
-  dearV1Axios.defaults.headers[REQUEST_TOKEN_KEY] = `Bearer ${token}`;
+  dearAxios.defaults.headers[REQUEST_TOKEN_KEY] = `Bearer ${token}`;
 };
+

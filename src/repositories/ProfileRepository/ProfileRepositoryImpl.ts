@@ -1,10 +1,10 @@
-import  dearV1Axios  from "@/libs/axios/CustomAxios";
+import  dearAxios  from "@/libs/axios/CustomAxios";
 import { ProfileRepository } from "./ProfileRepository";
 import {  ProfileType } from "@/types/profile/profileModel.types";
 
 class ProfileRepositoryImpl implements ProfileRepository {
   public async getProfileInfo(): Promise<ProfileType> {
-    const { data } = await dearV1Axios.get("/profile");
+    const { data } = await dearAxios.get("/profile");
     return data;
   }
 }
