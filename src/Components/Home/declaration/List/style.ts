@@ -26,12 +26,14 @@ export const ContentMain = styled.div`
 `;
 export const Content = styled.div`
   display: flex;
+  overflow: hidden;
+  text-overflow:ellipsis;
   width: 100%;
-  height: 50px;
+  height: 48px;
 `;
 export const Date = styled.div`
   display: flex;
-  width: 150px;
+  width: 200px;
   height: 20px;
 `;
 export const DirectionList = styled.div`

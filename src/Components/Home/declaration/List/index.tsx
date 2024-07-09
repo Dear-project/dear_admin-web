@@ -1,17 +1,20 @@
 import * as S from "./style";
 import { useGetDeclarationQuery } from "@/queries/declaration/query";
+import dateTransform from "@/utils/banner/dateTransform";
 
 const DeclarationList = () => {
   const { data } = useGetDeclarationQuery();
+  const reversedData = data ? [...data.data].reverse() : [];
+
   return (
     <S.DirectionList>
-      {data?.data.map((item, idx) => (
+      {reversedData.map((item, idx) => (
         <S.DeclarationThead>
           <S.Title>신고자 = {item.reportName}</S.Title>
           <S.Title>신고 대상 이름 = {item.targetName}</S.Title>
           <S.ContentMain>
             <S.Content>{item.reason}</S.Content>
-            <S.Date>{item.createdAt}</S.Date>
+            <S.Date>{dateTransform.DateTime(item.dateTime)}</S.Date>
           </S.ContentMain>
         </S.DeclarationThead>
       ))}

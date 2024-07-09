@@ -6,7 +6,7 @@ export interface Delcaration {
   reason: string;
   category: string;
   reportId: number;
-  createdAt: string;
+  dateTime: string;
   reportName: string;
   targetName: string
 }
