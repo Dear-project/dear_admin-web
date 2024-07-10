@@ -46,7 +46,6 @@ const ResponseHandler = async (error: AxiosError) => {
         await AuthRepositoryImpl.refreshAccessToken({
           refreshToken: usingRefreshToken,
         });
-        console.log(newAccessToken);
       dearAxios.defaults.headers.common[
         REQUEST_TOKEN_KEY
       ] = `Bearer ${newAccessToken}`;

@@ -5,10 +5,10 @@ import { MemberType } from "@/types/member/member.type";
 import { FilterMember } from "@/utils/member/FilterMember";
 import { useMemberSearchStore } from "@/store/member/index";
 import { useGetMemberList } from "@/queries/Member/Member.query";
-import setting from "@/assets/img/home/ic_round-more-horiz.svg";
+
 import UseMember from "@/hooks/Home/member/useMember";
-import MoreButton from "../../moreaction";
-import { member } from "../style";
+// import MoreButton from "../../moreaction";
+// import { member } from "../style";
 
 const MemberTable = () => {
   const { data } = useGetMemberList();
@@ -27,23 +27,14 @@ const MemberTable = () => {
             <S.TD>{member.email}</S.TD>
             <S.TD>{member.schoolName}</S.TD>
             <S.TD>{member.userStatus === "REJECT" ? "정지" : "활성화"}</S.TD>
-            <S.TD style={{ textAlign: "center", cursor: "pointer" }}>
-              <Image
-                src={setting}
-                alt="설정"
-                onClick={() =>
-                  useMember.memberBanSetting({ idx, userID: member.UserId })
-                }
-              ></Image>
-            </S.TD>
           </S.TR>
         ))}
-        {useMember.moreButton && (
+        {/* {useMember.moreButton && (
           <MoreButton
             Id={useMember.buttonId}
             onClose={useMember.MemberSettingDenial}
           />
-        )}
+        )} */}
       </S.Tbody>
     </>
   );

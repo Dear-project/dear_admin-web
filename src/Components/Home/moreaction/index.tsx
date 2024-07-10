@@ -7,6 +7,9 @@ interface MoreButtonProps {
 
 const MoreButton = ({Id , onClose}:MoreButtonProps) => {
     const {}= UseMember();
+    console.log(Id);
+    
+    
   return (
     <S.Main onClick={onClose}>
       <S.MoreButtonMain idx={Id}>

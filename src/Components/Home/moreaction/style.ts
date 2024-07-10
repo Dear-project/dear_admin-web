@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const MoreButtonMain = styled.div<{idx : number}>`
   position: absolute;
-  top: ${({idx})=>(idx*73)}px;
+  top: ${({idx})=>(idx > 9 ? (idx-9)*73
+   : idx*73 )}px;
   right: 10px;
   display: flex;
   align-items: center;
