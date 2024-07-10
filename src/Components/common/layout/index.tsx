@@ -2,7 +2,7 @@
 import Sidebar from "../sidbar/index";
 import { Container, Wrap } from "./style";
 import { usePathname, useRouter } from "next/navigation";
-
+// import withAuth from "@/libs/Hof/index";
 interface Props {
   children: React.ReactNode;
 }

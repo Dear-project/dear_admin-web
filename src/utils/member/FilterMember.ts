@@ -5,6 +5,6 @@ export const FilterMember =(  searchValue: string | any,memberInfo: MemberType[]
         return memberInfo
     }
     else{
-        return memberInfo.filter()
+         return memberInfo;
     }
 }

@@ -3,7 +3,7 @@ export const DearQueryKey = {
     getMy: "/profile",
   },
   member:{
-    getMeber:"/user",
+    getMember:"/user",
   },
   banner:{
     get: "/banner",

@@ -1,6 +1,7 @@
 import CONFIG  from "@/config/config.json";
 import axios, { AxiosRequestConfig } from "axios";
-import { requestInterceptor } from "./requestInterceptor";
+import requestInterceptor  from "./requestInterceptor";
+import ResponseHandler from "./responseInterceptors"
 import {
   REQUEST_TOKEN_KEY,
   ACCESS_TOKEN_KEY,
@@ -18,8 +19,8 @@ const axiosRequestConfig: AxiosRequestConfig = {
 
 const dearAxios = axios.create(axiosRequestConfig);
 
-dearAxios.interceptors.request.use(requestInterceptor, (err) => err);
-dearAxios.interceptors.response.use((res)=>res, )
+dearAxios.interceptors.request.use(requestInterceptor as any, (err) => err);
+dearAxios.interceptors.response.use((res)=>res, ResponseHandler)
 export default dearAxios;
 
 export const setAccessToken = (token: string) => {

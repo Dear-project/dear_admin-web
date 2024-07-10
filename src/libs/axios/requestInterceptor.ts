@@ -24,3 +24,5 @@ export const requestInterceptor = (
 
   return config;
 };
+
+export default requestInterceptor;

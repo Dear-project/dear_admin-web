@@ -11,7 +11,7 @@ export const useGetMemberList = () => {
     MemeberResponse,
     string[]
   >({ 
-    queryKey: [DearQueryKey.member.getMeber],
+    queryKey: [DearQueryKey.member.getMember],
     queryFn: () => MemberRepositoryImpl.getMemberList(),
     gcTime: 5 * 60 * 1000, // 5분
     refetchInterval: 3600000, // 1시간
@@ -20,6 +20,6 @@ export const useGetMemberList = () => {
 };
 
 export const memebrQuit = ()=>{
-  
+
 }
 

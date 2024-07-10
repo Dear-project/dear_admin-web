@@ -1,8 +1,9 @@
-"use client";
-
+"use client"
 import Main from "@/Components/Home/main/index";
 
-const App = () => {
+const MainPage = () => {
   return <Main />;
 };
-export default App;
+
+export default MainPage;
+
