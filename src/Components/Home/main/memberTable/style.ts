@@ -1,5 +1,5 @@
 import styled from "styled-components";
-export const tbody = styled.tbody`
+export const Tbody = styled.tbody`
   width: 100%;
   font-size: 14px;
   font-weight: 600;
@@ -27,7 +27,7 @@ export const TD = styled.td`
   font-size: 16px;
   line-height: 20px;
   overflow-x: hidden;
-  width: 120px;
+  width: 115px;
   text-overflow:ellipsis;
   img {
     width: 40px;

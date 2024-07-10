@@ -9,7 +9,7 @@ const DeclarationList = () => {
   return (
     <S.DirectionList>
       {reversedData.map((item, idx) => (
-        <S.DeclarationThead>
+        <S.DeclarationThead key={idx}>
           <S.Title>신고자 = {item.reportName}</S.Title>
           <S.Title>신고 대상 이름 = {item.targetName}</S.Title>
           <S.ContentMain>
