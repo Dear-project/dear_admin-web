@@ -12,5 +12,5 @@ export interface Login {
   password: string;
 }
 export interface NewAccessTokenResponse  {
-  data: string;
+  accessToken: string
 }

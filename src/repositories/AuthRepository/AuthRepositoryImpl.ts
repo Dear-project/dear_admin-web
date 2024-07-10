@@ -2,7 +2,7 @@ import axios from "axios";
 import { AuthRepository, NewAccessTokenResponse } from "./AuthRepository";
 import { LoginResponse } from "src/types/Auth/login.types";
 import { Login } from "./AuthRepository";
-import config from "src/config/config.json";
+import config from "@/config/config.json";
 
 class AuthRepositoryImpl implements AuthRepository {
   public async login(loginData: Login): Promise<LoginResponse> {
@@ -13,7 +13,7 @@ class AuthRepositoryImpl implements AuthRepository {
     refreshToken: string;
   }): Promise<NewAccessTokenResponse> {
     const { data } = await axios.post<NewAccessTokenResponse>(
-      `${config}/auth/refresh`,
+      `${config.server}/auth/refresh`,
       refreshToken
     );
     return data;

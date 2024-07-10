@@ -10,7 +10,7 @@ export const useGetProfileInfo = () => {
   const useGetprofile = useQuery<ProfileType, AxiosError<ProfileType>>({
     queryKey: [DearQueryKey],
     queryFn: async () => ProfileRepositoryImpl.getProfileInfo(),
-    gcTime: 1000 * 60 * 60, 
+    refetchInterval: 1000 * 60 * 5 , // 1분 마다 재요청
     staleTime: 1000 * 60 * 5,
   }
   
