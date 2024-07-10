@@ -1,23 +1,28 @@
 import defaultImg from "@/assets/img/home/Avatar1.png";
 import Image from "next/image";
 import * as S from "./style";
-import { MemberType } from "@/types/member/member.type";
+import { MemberType, MemeberResponse } from "@/types/member/member.type";
 import { FilterMember } from "@/utils/member/FilterMember";
 import { useMemberSearchStore } from "@/store/member/index";
 import { useGetMemberList } from "@/queries/Member/Member.query";
-
 import UseMember from "@/hooks/Home/member/useMember";
-// import MoreButton from "../../moreaction";
-// import { member } from "../style";
 
 const MemberTable = () => {
-  const { data } = useGetMemberList();
+  const memberListQuery = useGetMemberList();
   const searchValue = useMemberSearchStore();
   const { ...useMember } = UseMember();
+
+  if (!memberListQuery) {
+    // 데이터가 로딩 중일 때 처리할 내용
+    return <div>Loading...</div>;
+  }
+
+  const { data } = memberListQuery as MemeberResponse;
+
   return (
     <>
       <S.Tbody>
-        {FilterMember(searchValue, data).map((member: MemberType, idx) => (
+        {FilterMember(searchValue, data ?? []).map((member: MemberType, idx) => (
           <S.TR key={member.UserId}>
             <S.TD>
               <Image src={defaultImg} alt="프로필사진" />

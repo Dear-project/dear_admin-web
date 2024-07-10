@@ -21,11 +21,11 @@ const Main = () => {
         </table>
         <S.memberMain>
           <S.memberList>
-            <ErrorBoundary>
-              <Suspense fallback={<SkeletonComponent height={500} />}>
+            {/* <ErrorBoundary>
+              <Suspense fallback={<SkeletonComponent height={500} />}> */}
                 <MemberTable />
-              </Suspense>
-            </ErrorBoundary>
+              {/* </Suspense>
+            </ErrorBoundary> */}
           </S.memberList>
         </S.memberMain>
       </S.member>

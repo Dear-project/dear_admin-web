@@ -5,10 +5,9 @@ import ResponseHandler from "./responseInterceptors";
 import Token from "../Token/Token";
 import { REQUEST_TOKEN_KEY, ACCESS_TOKEN_KEY } from "@/constant/Token/Token.constant";
 
-export const apiHost = CONFIG.server;
 
 const axiosRequestConfig: AxiosRequestConfig = {
-  baseURL: apiHost,
+  baseURL: CONFIG.server,
   headers: {
     [REQUEST_TOKEN_KEY]: `Bearer ${Token.getToken(ACCESS_TOKEN_KEY)}`,
   },
@@ -16,8 +15,11 @@ const axiosRequestConfig: AxiosRequestConfig = {
 
 const dearAxios = axios.create(axiosRequestConfig);
 
+
 dearAxios.interceptors.request.use(requestInterceptor as any, (err) => Promise.reject(err));
+
 dearAxios.interceptors.response.use((res) => res, ResponseHandler);
+
 
 export default dearAxios;
 

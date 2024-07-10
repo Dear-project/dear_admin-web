@@ -1,4 +1,4 @@
-import { useSuspenseQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useSuspenseQuery, useMutation, useQueryClient,useQuery } from "@tanstack/react-query";
 import { MemberType, MemeberResponse } from "@/types/member/member.type";
 import MemberRepositoryImpl from "@/repositories/MemberRepository/MemberRepositoryImpl";
 import { AxiosError } from "axios";
@@ -7,11 +7,10 @@ import { RejectPrpos } from "@/types/member/member.type";
 
 export const useGetMemberList = () => {
   const queryClient = useQueryClient();
-  const useGetMember = useSuspenseQuery<
+  const useGetMember = useQuery<
   MemeberResponse,
     AxiosError,
-    MemeberResponse,
-    string[]
+    MemeberResponse, string[]
   >({ 
     queryKey: [DearQueryKey.member.getMember],
     queryFn: () => MemberRepositoryImpl.getMemberList(),
@@ -19,7 +18,7 @@ export const useGetMemberList = () => {
     refetchInterval: 3600000, // 1시간
   });
   queryClient.invalidateQueries({queryKey:[DearQueryKey.profile.getMy]})
-  return useGetMember.data;
+  return useGetMember.data ? useGetMember.data : undefined;
 };
 
 export const useMemebrQuit = ( )=>{
