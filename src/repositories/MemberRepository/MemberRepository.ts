@@ -1,14 +1,8 @@
-import { MemeberResponse } from "@/types/member/member.type";
+import { MemeberResponse, RejectPrpos } from "@/types/member/member.type";
 export interface MemberRepository {
   getMemberList(): Promise<MemeberResponse>;
-  rejectMember(id: UserID): Promise<RejectMemberResponse>;
+  rejectMember({Id,commnet}:RejectPrpos):Promise<RejectMemberResponse>
 }
 
-export interface RejectMemberResponse {
-  data: {
-    comment: string;
-  };
-}
-export interface UserID {
-  id: number;
-}
+
+export interface RejectMemberResponse extends Response {}

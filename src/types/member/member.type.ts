@@ -17,3 +17,8 @@ export interface MemeberResponse extends Response {
   data: MemberType[] ;
 }
 
+
+export interface RejectPrpos{
+  Id:number;
+  commnet:string;
+}

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const DeclarationThead = styled.div`
+position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -18,6 +19,7 @@ export const Title = styled.div`
   font-weight: 700;
 `;
 export const ContentMain = styled.div`
+  
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -27,7 +29,7 @@ export const ContentMain = styled.div`
 export const Content = styled.div`
   display: flex;
   overflow: hidden;
-  text-overflow:ellipsis;
+  text-overflow: ellipsis;
   width: 100%;
   height: 48px;
 `;
@@ -42,4 +44,19 @@ export const DirectionList = styled.div`
   width: 100%;
   height: 100%;
   padding: 10px 10px;
+`;
+
+export const directionRejectButton = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 5;
+  cursor: pointer;
+  img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 4rem;
+    
+  }
 `;

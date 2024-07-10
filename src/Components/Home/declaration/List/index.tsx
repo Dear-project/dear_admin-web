@@ -1,11 +1,15 @@
 import * as S from "./style";
 import { useGetDeclarationQuery } from "@/queries/declaration/query";
 import dateTransform from "@/utils/banner/dateTransform";
+import UseDeclaration from "@/hooks/Home/declaration/useDeclaration";
+import {Delcaration} from "@/types/declaration/declaration.type"
+import setting from "@/assets/img/home/ic_round-more-horiz.svg"
+import Image from "next/image";
 
 const DeclarationList = () => {
   const { data } = useGetDeclarationQuery();
   const reversedData = data ? [...data.data].reverse() : [];
-
+const {...declaration}=UseDeclaration();
   return (
     <S.DirectionList>
       {reversedData.map((item, idx) => (
@@ -15,7 +19,18 @@ const DeclarationList = () => {
           <S.ContentMain>
             <S.Content>{item.reason}</S.Content>
             <S.Date>{dateTransform.DateTime(item.dateTime)}</S.Date>
+          
           </S.ContentMain>
+          <S.directionRejectButton>
+            <Image
+                src={setting}
+                alt="설정"
+                onClick={() =>
+                  declaration.MemberReject(item)
+                }
+              />
+            </S.directionRejectButton>
+           
         </S.DeclarationThead>
       ))}
     </S.DirectionList>
