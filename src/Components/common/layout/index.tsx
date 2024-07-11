@@ -12,7 +12,7 @@ const Layout = ({ children }: Props) => {
   return (
     <>
       <Container>
-        {pathname !== "/login" && <Sidebar />}
+        {pathname !== "/login/" && <Sidebar />}
         <Wrap $isSign={pathname == "/sign" ? false : true}>{children}</Wrap>
       </Container>
     </>
