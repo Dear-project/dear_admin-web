@@ -1,0 +1,2 @@
+echo "> after install"
+
