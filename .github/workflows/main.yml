@@ -1,26 +1,31 @@
-name: NEXT Deploy
+name: Deploy Next.js to EC2
+
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout source code
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install Dependencies
-        run: |
-          yarn install
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18" 
 
-      - name: Build Next.js app
-        run: |
-          yarn build
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build project
+        run: yarn build
 
       - name: Archive production artifacts
-        run: |
-          tar -czf next-app.tar.gz .next package.json yarn.lock
+        run: tar -czf next-app.tar.gz .next package.json yarn.lock
 
       - name: Upload production artifacts
         uses: actions/upload-artifact@v2
@@ -31,38 +36,32 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+
     steps:
       - name: Download production artifacts
         uses: actions/download-artifact@v2
         with:
           name: next-app
-          path: .
 
-      - name: Extract production artifacts
-        run: |
-          tar -xzf next-app.tar.gz
-
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-northeast-2
+          ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
 
-      - name: Copy files via SSH
+      - name: Copy files to EC2
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        run: |
-          scp -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY next-app.tar.gz ec2-user@<EC2_INSTANCE_PUBLIC_IP>:/home/ec2-user/
+          EC2_USER: ${{ secrets.EC2_USER }}
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+        run: scp -o StrictHostKeyChecking=no next-app.tar.gz $EC2_USER@$EC2_HOST:/home/$EC2_USER/
 
-      - name: Connect to EC2 and deploy
+      - name: Deploy on EC2
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          EC2_USER: ${{ secrets.EC2_USER }}
+          EC2_HOST: ${{ secrets.EC2_HOST }}
         run: |
-          ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY ec2-user@<EC2_INSTANCE_PUBLIC_IP> << 'EOF'
-            cd /home/ec2-user
-            tar -xzf next-app.tar.gz
-            cd /home/ec2-user/next-app
+          ssh -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST << 'EOF'
+            tar -xzf /home/$EC2_USER/next-app.tar.gz -C /home/$EC2_USER/
+            cd /home/$EC2_USER/
             yarn install --production
             pm2 restart all || pm2 start npm --name "next-app" -- start
           EOF
