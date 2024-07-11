@@ -6,23 +6,22 @@ on:
       - main
 
 env:
-  S3_BUCKET_NAME: chagok-bucket
-  CODE_DEPLOY_APPLICATION_NAME: chagok-code-deploy
-  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: chagok
+  S3_BUCKET_NAME: dear-web
+  CODE_DEPLOY_APPLICATION_NAME: dear-web
+  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: dear-web-group
 
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [20.x]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: "yarn"
@@ -43,7 +42,7 @@ jobs:
       - name: Make zip file
         run: zip -qq -r ./chagok.zip . -x "node_modules/*"
 
-      # Github Action에서 AWS의 권한 자격을 얻어오는 단계
+      # AWS 자격 증명 설정
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
@@ -55,7 +54,7 @@ jobs:
       - name: Upload to S3
         run: aws s3 cp --region ap-northeast-2 ./chagok.zip s3://$S3_BUCKET_NAME/chagok.zip
 
-      # S3에 업로드 된 빌드 파일을 이용해 CodeDeploy가 정의된 동작을 하도록 트리거
+      # S3에 업로드된 빌드 파일을 이용해 CodeDeploy가 정의된 동작을 하도록 트리거
       - name: Code Deploy
         run: |
           aws deploy create-deployment \
