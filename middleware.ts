@@ -16,8 +16,6 @@ export function middleware(request: NextRequest) {
    
     return NextResponse.redirect(new URL('/login', request.url));
   }
-
-  
   // 공용 경로에 접근하려고 하지만 토큰이 있는 경우
   if (token && publicRoutes.some((route) => currentPath.startsWith(route))) {
     return NextResponse.redirect(new URL('/', request.url));
