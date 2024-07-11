@@ -18,6 +18,11 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Create config directory and config.json
+        run: |
+          mkdir -p ./src/config
+          echo "{\"server\": \"${{ secrets.CONFIG_SERVER }}\"}" > ./src/config/config.json
+
       - name: Install dependencies
         run: yarn install
 
