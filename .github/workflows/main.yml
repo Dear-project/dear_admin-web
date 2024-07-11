@@ -18,27 +18,19 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Create config directory and config.json
-        run: |
-          mkdir -p ./src/config
-          echo "{\"server\": \"${{ secrets.CONFIG_SERVER }}\"}" > ./src/config/config.json
-
       - name: Install dependencies
         run: yarn install
 
       - name: Build Next.js app
         run: yarn build 
 
-      - name: Create .ssh directory
-        run: mkdir -p ~/.ssh
-
       - name: Add SSH key
         run: |
+          mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-
-      - name: Create known_hosts
-        run: ssh-keyscan -H ${{ secrets.REMOTE_HOST }} >> ~/.ssh/known_hosts
+          ls -la ~/.ssh
+          cat ~/.ssh/deploy_key | head -n 5  # 키 파일의 앞 부분만 출력
 
       - name: Deploy to server
         uses: easingthemes/ssh-deploy@v2.1.5
@@ -49,5 +41,5 @@ jobs:
           TARGET: ${{ secrets.TARGET }}
         with:
           args: '-avz --delete'
-          source: 'public/'  
+          source: '.'
           target: ${{ secrets.TARGET }}
