@@ -29,6 +29,14 @@ jobs:
       - name: Build Next.js app
         run: yarn build 
 
+      - name: Add SSH key
+        run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+
+      - name: Create known_hosts
+        run: ssh-keyscan -H ${{ secrets.REMOTE_HOST }} >> ~/.ssh/known_hosts
+
       - name: Deploy to server
         uses: easingthemes/ssh-deploy@v2.1.5
         env:
@@ -38,5 +46,5 @@ jobs:
           TARGET: ${{ secrets.TARGET }}
         with:
           args: '-avz --delete'
-          source: '.'
+          source: 'public/'  # Ensure this is the correct source directory
           target: ${{ secrets.TARGET }}
