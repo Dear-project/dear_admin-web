@@ -18,9 +18,9 @@ jobs:
         with:
           node-version: '20'
 
-        - name: Create config.json
+      - name: Create config.json
         run: |
-          echo "${{ secrets.CONFIG_JSON }}" > ./src/config/config.json
+          echo "{\"server\": \"${{ secrets.CONFIG_SERVER }}\"}" > ./src/config/config.json
 
       - name: Install dependencies
         run: yarn install
