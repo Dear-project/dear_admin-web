@@ -1,50 +1,65 @@
-name: Deploy Next.js App
+name: deploy to S3
 
 on:
   push:
     branches:
       - main
 
+env:
+  S3_BUCKET_NAME: chagok-bucket
+  CODE_DEPLOY_APPLICATION_NAME: chagok-code-deploy
+  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: chagok
+
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: ${{ matrix.node-version }}
+          cache: "yarn"
+
+      - name: Install dependencies
+        run: yarn install
 
       - name: Create config directory and config.json
         run: |
           mkdir -p ./src/config
           echo "{\"server\": \"${{ secrets.CONFIG_SERVER }}\"}" > ./src/config/config.json
 
-      - name: Install dependencies
-        run: yarn install
+      # 프로젝트 빌드
+      - name: Build next app
+        run: yarn build
 
-      - name: Build Next.js app
-        run: yarn build 
+      # 프로젝트 압축
+      - name: Make zip file
+        run: zip -qq -r ./chagok.zip . -x "node_modules/*"
 
-      - name: Add SSH key
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
-          ls -la ~/.ssh
-          cat ~/.ssh/deploy_key | head -n 5  # 키 파일의 앞 부분만 출력
-
-      - name: Deploy to server
-        uses: easingthemes/ssh-deploy@v2.1.5
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: ${{ secrets.TARGET }}
+      # Github Action에서 AWS의 권한 자격을 얻어오는 단계
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
         with:
-          args: '-avz --delete'
-          source: '.'
-          target: ${{ secrets.TARGET }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-2
+
+      # 압축된 파일을 S3에 업로드
+      - name: Upload to S3
+        run: aws s3 cp --region ap-northeast-2 ./chagok.zip s3://$S3_BUCKET_NAME/chagok.zip
+
+      # S3에 업로드 된 빌드 파일을 이용해 CodeDeploy가 정의된 동작을 하도록 트리거
+      - name: Code Deploy
+        run: |
+          aws deploy create-deployment \
+          --application-name ${{ env.CODE_DEPLOY_APPLICATION_NAME }} \
+          --deployment-config-name CodeDeployDefault.AllAtOnce \
+          --deployment-group-name ${{ env.CODE_DEPLOY_DEPLOYMENT_GROUP_NAME }} \
+          --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=chagok.zip
