@@ -29,6 +29,9 @@ jobs:
       - name: Build Next.js app
         run: yarn build 
 
+      - name: Create .ssh directory
+        run: mkdir -p ~/.ssh
+
       - name: Add SSH key
         run: |
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
@@ -46,5 +49,5 @@ jobs:
           TARGET: ${{ secrets.TARGET }}
         with:
           args: '-avz --delete'
-          source: 'public/'  # Ensure this is the correct source directory
+          source: 'public/'  
           target: ${{ secrets.TARGET }}
