@@ -1,8 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  basePath: '/dear_admin-web',
-  assetPrefix: '/dear_admin-web',
+  trailingSlash:true ,
+  output:'export',
+  basePath: '/dear-admin-web',
+  assetPrefix: '/dear-admin-web',
   images: {
     domains: ["lift-s3-bucket.s3.ap-northeast-2.amazonaws.com"],
     unoptimized: true,
@@ -11,6 +13,7 @@ const nextConfig = {
     styledComponents: true,
   },
   webpack: (config) => {
+    
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.(".svg")
     );
@@ -38,4 +41,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
