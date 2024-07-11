@@ -1,14 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  basePath: '/dear_admin-web',
+  assetPrefix: '/dear_admin-web',
   images: {
     domains: ["lift-s3-bucket.s3.ap-northeast-2.amazonaws.com"],
+    unoptimized: true,
+  },
+  compiler: {
+    styledComponents: true,
   },
   webpack: (config) => {
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.(".svg")
     );
-
     config.module.rules.push(
       {
         ...fileLoaderRule,
@@ -33,4 +38,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
