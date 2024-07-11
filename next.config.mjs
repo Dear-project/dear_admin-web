@@ -3,8 +3,6 @@ const nextConfig = {
   reactStrictMode: true,
   trailingSlash:true ,
   output:'export',
-  basePath: '/dear-admin-web',
-  assetPrefix: '/dear-admin-web',
   images: {
     domains: ["lift-s3-bucket.s3.ap-northeast-2.amazonaws.com"],
     unoptimized: true,
