@@ -8,7 +8,3 @@ export const usePostLoginMutation = () => {
   return mutation;
 };
 
-// export const usePostSignupMutation = () => {
-//   const mutation = useMutation(AuthRepositoryImpl.signupStudent);
-//   return mutation;
-// };
