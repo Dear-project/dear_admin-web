@@ -31,19 +31,19 @@ const {data}=useGetProfileInfo();
               <span>구성원</span>
             </S.sideblock>
           </Link>
-          <Link href={"/declaration"}>
-            <S.sideblock $isSelect={"/declaration" == pathname ? true : false}>
+          <Link href={"/declaration/"}>
+            <S.sideblock $isSelect={"/declaration/" == pathname ? true : false}>
               <Image
-                src={"/declaration" == pathname ? chat : chat2}
+                src={"/declaration/" == pathname ? chat : chat2}
                 alt="문의"
               />
               <span>신고문의</span>
             </S.sideblock>
           </Link>
-          <Link href={"/banner"}>
-            <S.sideblock $isSelect={"/banner" == pathname ? true : false}>
+          <Link href={"/banner/"}>
+            <S.sideblock $isSelect={"/banner/" == pathname ? true : false}>
               <Image
-                src={"/banner" == pathname ? banner : banner2}
+                src={"/banner/" == pathname ? banner : banner2}
                 alt="문의"
               />
               <span>배너</span>
