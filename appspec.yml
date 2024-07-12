@@ -11,6 +11,10 @@ permissions:
     group: ubuntu
     mode: 755
 hooks:
+  BeforeInstall:
+    - location: scripts/before-install.sh
+      timeout: 300
+      runas: root
   AfterInstall:
     - location: scripts/after-install.sh
       timeout: 300
