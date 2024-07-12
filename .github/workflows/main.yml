@@ -32,7 +32,7 @@ jobs:
       - name: Create config directory and config.json
         run: |
           mkdir -p ./src/config
-          echo "{\"server\": \"${{ secrets.CONFIG_SERVER }}\"}" > ./src/config/config.json
+          echo "{\"server\": \"${{ secrets.CONFIG_JSON }}\"}" > ./src/config/config.json
 
       # 프로젝트 빌드
       - name: Build next app
