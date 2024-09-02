@@ -23,8 +23,8 @@ const Main = () => {
           <S.memberList>
             {/* <ErrorBoundary>
               <Suspense fallback={<SkeletonComponent height={500} />}> */}
-                <MemberTable />
-              {/* </Suspense>
+            <MemberTable />
+            {/* </Suspense>
             </ErrorBoundary> */}
           </S.memberList>
         </S.memberMain>

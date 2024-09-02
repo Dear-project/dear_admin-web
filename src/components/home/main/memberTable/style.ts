@@ -6,7 +6,6 @@ export const Tbody = styled.tbody`
   display: flex;
   flex-direction: column;
   white-space: normal;
-
 `;
 export const TR = styled.tr`
   width: 100%;
@@ -23,12 +22,14 @@ export const TD = styled.td`
   text-align: start;
   padding: 12px;
   vertical-align: middle;
+  display: flex;
+  justify-content: space-around;
   width: 14%;
   font-size: 16px;
   line-height: 20px;
   overflow-x: hidden;
   width: 115px;
-  text-overflow:ellipsis;
+  text-overflow: ellipsis;
   img {
     width: 40px;
     height: 40px;

@@ -6,6 +6,7 @@ import { FilterMember } from "@/utils/member/FilterMember";
 import { useMemberSearchStore } from "@/store/member/index";
 import { useGetMemberList } from "@/queries/Member/Member.query";
 import UseMember from "@/hooks/Home/member/useMember";
+import convertText from "@/utils/textSplit/comvertText";
 
 const MemberTable = () => {
   const memberListQuery = useGetMemberList();
@@ -28,10 +29,9 @@ const MemberTable = () => {
               <Image src={defaultImg} alt="프로필사진" />
             </S.TD>
             <S.TD>{member.name}</S.TD>
-            <S.TD>{member.role === "STUDENT" ? "학생" : "교수"}</S.TD>
-            <S.TD>{member.email}</S.TD>
-            <S.TD>{member.schoolName}</S.TD>
-            <S.TD>{member.userStatus === "REJECT" ? "정지" : "활성화"}</S.TD>
+            <S.TD>{convertText.omissionText(member.email)}</S.TD>
+            <S.TD>{member.UserId ? member.UserId : "name"}</S.TD>
+            <S.TD>{convertText.omissionText(member.schoolName)}</S.TD>
           </S.TR>
         ))}
         {/* {useMember.moreButton && (
