@@ -1,6 +1,6 @@
 "use client"
 import * as S from "./style";
-import BannerList from "./bannerList";
+import BannerList from "./bannerList/index";
 import BannerFrom from "./bannerForm/index";
 import { useGetBannersQuery } from "@/queries/banner/bannerUpload.query";
 const Banner = () => {

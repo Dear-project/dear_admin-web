@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import QueryClientProvider from "../Components/common/provider/query-provider";
-import Layout from "../Components/common/layout/index";
+import QueryClientProvider from "../component/common/provider/query-provider";
+import Layout from "../component/common/layout/index";
 import StyledComponentsRegistry from "@/libs/registry";
 import "@/styles/font.css"
 export const metadata: Metadata = {

@@ -4,8 +4,8 @@ import MemberTable from "./memberTable/index";
 import { SearchBar } from "../searchBar/searchBar";
 import { MEMBER_TABLE_ITEMS } from "@/constant/member/Member.constant";
 import { useMemberSearchStore } from "@/store/member";
-import SkeletonComponent from "@/components/common/skleton/index";
-import ErrorBoundary from "@/components/common/error";
+import SkeletonComponent from "@/component/common/skleton/index";
+import ErrorBoundary from "@/component/common/error";
 import { Suspense, useState } from "react";
 const Main = () => {
   const { memberSearch, setMemberSearch } = useMemberSearchStore();

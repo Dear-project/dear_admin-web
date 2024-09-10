@@ -1,5 +1,5 @@
 "use client";
-import Declaration from "@/Components/Home/declaration/index"
+import Declaration from "@/component/homes/declaration/index"
 const DeclarationPage = ()=>{
     return(
         <Declaration/>

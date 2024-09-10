@@ -1,5 +1,5 @@
 import * as S from "./style";
-import DeclarationList from "./List";
+import DeclarationList from "./List/index";
 import { SearchBar } from "../searchBar/searchBar";
 import {useDeclarationrSearchStore} from "@/store/declaration/index";
 

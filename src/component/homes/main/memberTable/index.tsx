@@ -8,7 +8,7 @@ import { useGetMemberList } from "@/queries/Member/Member.query";
 import UseMember from "@/hooks/Home/member/useMember";
 import convertText from "@/utils/textSplit/comvertText";
 import MoreImage from "@/assets/img/home/ic_round-more-horiz.svg";
-import MoreButton from "../../moreaction";
+import MoreButton from "../../moreaction/index";
 
 const MemberTable = () => {
   const memberListQuery = useGetMemberList();
