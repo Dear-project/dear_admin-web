@@ -1,8 +1,8 @@
 import { Response } from "../util/Auth/response.type";
 
 export interface MemberType {
-  UserId: number;
-  email: string
+  userId: number;
+  email: string;
   name: string;
   birthDay: string;
   userStatus: string;
@@ -14,11 +14,10 @@ export interface MemberType {
 }
 
 export interface MemeberResponse extends Response {
-  data: MemberType[] ;
+  data: MemberType[];
 }
 
-
-export interface RejectPrpos{
-  Id:number;
-  commnet:string;
+export interface RejectPrpos {
+  Id: number;
+  commnet: string;
 }

@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
-export const MoreButtonMain = styled.div<{idx : number}>`
+export const MoreButtonMain = styled.div<{ idx: number }>`
   position: absolute;
-  top: ${({idx})=>(idx > 9 ? (idx-9)*73
-   : idx*73 )}px;
+  top: ${({ idx }) => (idx > 9 ? (idx - 9) * 73 : idx * 73)}px;
   right: 10px;
   display: flex;
   align-items: center;
@@ -15,8 +14,8 @@ export const MoreButtonMain = styled.div<{idx : number}>`
   box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.08);
 `;
 export const Main = styled.div`
-position: absolute;
-z-index: 5;
+  position: absolute;
+  z-index: 5;
   width: 75%;
   height: 70%;
 `;
