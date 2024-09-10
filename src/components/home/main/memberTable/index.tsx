@@ -6,6 +6,9 @@ import { FilterMember } from "@/utils/member/FilterMember";
 import { useMemberSearchStore } from "@/store/member/index";
 import { useGetMemberList } from "@/queries/Member/Member.query";
 import UseMember from "@/hooks/Home/member/useMember";
+import convertText from "@/utils/textSplit/comvertText";
+import MoreImage from "@/assets/img/home/ic_round-more-horiz.svg";
+import MoreButton from "../../moreaction";
 
 const MemberTable = () => {
   const memberListQuery = useGetMemberList();
@@ -23,23 +26,34 @@ const MemberTable = () => {
     <>
       <S.Tbody>
         {FilterMember(searchValue, data ?? []).map((member: MemberType, idx) => (
-          <S.TR key={member.UserId}>
+          <S.TR key={member.userId}>
             <S.TD>
               <Image src={defaultImg} alt="프로필사진" />
             </S.TD>
             <S.TD>{member.name}</S.TD>
-            <S.TD>{member.role === "STUDENT" ? "학생" : "교수"}</S.TD>
-            <S.TD>{member.email}</S.TD>
-            <S.TD>{member.schoolName}</S.TD>
-            <S.TD>{member.userStatus === "REJECT" ? "정지" : "활성화"}</S.TD>
+            <S.TD>{convertText.omissionText(member.email)}</S.TD>
+            <S.TD>
+              {convertText.omissionText(member.schoolName)
+                ? convertText.omissionText(member.schoolName)
+                : "학교 정보 없음"}
+            </S.TD>
+            <Image
+              src={MoreImage}
+              alt="더보기"
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                const params = {
+                  idx: idx,
+                  member: member,
+                };
+                console.log(idx);
+
+                useMember.memberBanSetting(params);
+              }}
+            />
           </S.TR>
         ))}
-        {/* {useMember.moreButton && (
-          <MoreButton
-            Id={useMember.buttonId}
-            onClose={useMember.MemberSettingDenial}
-          />
-        )} */}
+        {useMember.moreButton && <MoreButton Id={useMember.buttonId} onClose={useMember.MemberSettingDenial} />}
       </S.Tbody>
     </>
   );

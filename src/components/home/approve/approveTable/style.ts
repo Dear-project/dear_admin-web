@@ -1,5 +1,6 @@
 import styled from "styled-components";
-export const Tbody = styled.tbody`
+
+export const TBody = styled.tbody`
   width: 100%;
   font-size: 14px;
   font-weight: 600;
@@ -7,6 +8,7 @@ export const Tbody = styled.tbody`
   flex-direction: column;
   white-space: normal;
 `;
+
 export const TR = styled.tr`
   width: 100%;
   height: 80px;
@@ -24,16 +26,11 @@ export const TD = styled.td`
   vertical-align: middle;
   display: flex;
   justify-content: space-around;
+
   width: 14%;
   font-size: 16px;
   line-height: 20px;
   overflow-x: hidden;
   width: 115px;
   text-overflow: ellipsis;
-  img {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    border-radius: 4rem;
-  }
 `;
