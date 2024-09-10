@@ -1,8 +1,8 @@
 "use client"
-import Main from "@/Components/Home/main/index";
+import Approve from "@/components/home/approve";
 
 const MainPage = () => {
-  return <Main />;
+  return <Approve />;
 };
 
 export default MainPage;
