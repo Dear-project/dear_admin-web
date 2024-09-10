@@ -1,5 +1,5 @@
 "use client"
-import Approve from "@/component/homes/approve";
+import Approve from "@/components/home/approve";
 
 const MainPage = () => {
   return <Approve />;

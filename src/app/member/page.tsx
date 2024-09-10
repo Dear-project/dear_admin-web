@@ -1,5 +1,5 @@
 'use client';
-import Main from "@/component/homes/main";
+import Main from "@/components/home/main";
 const Memeber = ()=>{
 return <Main/>
 }

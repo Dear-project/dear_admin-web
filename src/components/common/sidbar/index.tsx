@@ -9,7 +9,7 @@ import member2 from "@/assets/img/home/Vector.png";
 import chat2 from "@/assets/img/home/chat.png";
 import banner2 from "@/assets/img/home/page_info.png";
 import defaultImg from "@/assets/img/home/Avatar1.png";
-import Logout from "@/component/homes/logout/index";
+import Logout from "@/components/home/logout/index";
 import { usePathname } from "next/navigation";
 import * as S from "./style";
 import { useGetProfileInfo } from "@/queries/Profile/Profile.query";
