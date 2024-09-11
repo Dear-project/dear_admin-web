@@ -7,7 +7,7 @@ import { useMemberSearchStore } from "@/store/member";
 import SkeletonComponent from "@/components/common/skleton/index";
 import ErrorBoundary from "@/components/common/error";
 import { Suspense, useState } from "react";
-const Main = () => {
+const Member = () => {
   const { memberSearch, setMemberSearch } = useMemberSearchStore();
 
   return (
@@ -32,4 +32,4 @@ const Main = () => {
     </S.Main>
   );
 };
-export default Main;
+export default Member;

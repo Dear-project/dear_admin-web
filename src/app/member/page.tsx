@@ -1,6 +1,6 @@
 'use client';
-import Main from "@/components/home/main";
+import Member from "@/components/home/member";
 const Memeber = ()=>{
-return <Main/>
+return <Member/>
 }
 export default Memeber;

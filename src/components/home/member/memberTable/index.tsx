@@ -9,9 +9,10 @@ import UseMember from "@/hooks/Home/member/useMember";
 import convertText from "@/utils/textSplit/comvertText";
 import MoreImage from "@/assets/img/home/ic_round-more-horiz.svg";
 import MoreButton from "../../moreaction/index";
+import { USER_STATUS } from "@/constant/userStatus/userStatus.constant";
 
 const MemberTable = () => {
-  const memberListQuery = useGetMemberList();
+  const memberListQuery = useGetMemberList(USER_STATUS[0]);
   const searchValue = useMemberSearchStore();
   const { ...useMember } = UseMember();
 

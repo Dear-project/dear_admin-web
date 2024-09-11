@@ -3,9 +3,11 @@ import { MemeberResponse, RejectPrpos } from "@/types/member/member.type";
 import { MemberRepository, RejectMemberResponse } from "./MemberRepository";
 
 class MemberRepositoryImpl implements MemberRepository {
-  public async getMemberList(): Promise<MemeberResponse> {
+  public async getMemberList(userStatus:string): Promise<MemeberResponse> {
     try {
-      const { data } = await dearAxios.get("/user");
+      const { data } = await dearAxios.get("/user", {
+        params: { userStatus: userStatus }, 
+      });
       return data;
     } catch (error) {
       console.error(error);
