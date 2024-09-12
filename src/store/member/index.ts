@@ -12,12 +12,15 @@ type MemberSearchState = {
   }));
 
 
-type MemberSelectState = {
-  selectClick: string;
-  setSelectClick: (value: string) => void;
-};
-
-export const useSelectClick = create<MemberSelectState>((set) => ({
-  selectClick: "COMMON",
-  setSelectClick: (value) => set({ selectClick: value }),
-}));
+  type MemberSelectState = {
+    selectClick: string;
+    setSelectClick: React.Dispatch<React.SetStateAction<string>>;  // React 형식으로 변경
+  };
+  
+  export const useSelectClick = create<MemberSelectState>((set) => ({
+    selectClick: "COMMON",
+    setSelectClick: (value) => set((state) => ({
+      selectClick: typeof value === "function" ? value(state.selectClick) : value
+      
+    })),
+  }));

@@ -4,27 +4,27 @@ import MemberTable from "./memberTable/index";
 import { SearchBar } from "../searchBar/searchBar";
 import { MEMBER_TABLE_ITEMS } from "@/constant/member/Member.constant";
 import { useMemberSearchStore , useSelectClick} from "@/store/member";
-import UseMember from "@/hooks/Home/member/useMember";
-import { selectList } from "@/constant/userStatus/userStatus.constant";
+import { Select } from "@/components/common/select/selectButton";
+import { USER_STATUS } from "@/constant/userStatus/userStatus.constant";
+import { useQueryClient } from "@tanstack/react-query";
+import { DearQueryKey } from "@/queries/queryKeys";
+
 
 const Member = () => {
-  const {selectClick}=useSelectClick();
+  const {selectClick, setSelectClick}=useSelectClick();
   const { memberSearch, setMemberSearch } = useMemberSearchStore();
-const {hadleSelect}=UseMember();
-
-
+  
   return (
     <S.Main>
       <S.member>
         <S.headerBox>
           <S.selectBox>
-            <S.selectMain value={selectClick} onChange={hadleSelect}>
-              {selectList.map((item)=>(
-                <option value={item.value} key={item.value}>
-                  {item.name}
-                </option>
-              ))}
-            </S.selectMain>
+            <Select
+            items={USER_STATUS}
+            value={selectClick}
+            onChange={setSelectClick}
+            zIndex={2}
+            />
           </S.selectBox>
           <SearchBar onChange={setMemberSearch} value={memberSearch} />
         </S.headerBox>

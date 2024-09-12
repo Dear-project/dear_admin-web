@@ -34,7 +34,7 @@ export const selectMain = styled.select`
     position: relative;
     column-gap: 15px;
     cursor: pointer;
-    margin-bottom: 30px;
+    margin-bottom: 32px;
     :focus{
       outline: none;
     }

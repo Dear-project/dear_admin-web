@@ -14,6 +14,7 @@ import MoreButton from "../../moreaction/index";
 const MemberTable = () => {
   const { ...useMember } = UseMember();
   const {selectClick} = useSelectClick();
+  
   const {data} = useGetMemberList(selectClick);
   
   const searchValue = useMemberSearchStore();
