@@ -3,16 +3,13 @@ import Table from "../table/index";
 import MemberTable from "./memberTable/index";
 import { SearchBar } from "../searchBar/searchBar";
 import { MEMBER_TABLE_ITEMS } from "@/constant/member/Member.constant";
-import { useMemberSearchStore } from "@/store/member";
-import SkeletonComponent from "@/components/common/skleton/index";
-import ErrorBoundary from "@/components/common/error";
-import { Suspense, useState } from "react";
+import { useMemberSearchStore , useSelectClick} from "@/store/member";
 import UseMember from "@/hooks/Home/member/useMember";
 
 const Member = () => {
-
+  const {selectClick}=useSelectClick();
   const { memberSearch, setMemberSearch } = useMemberSearchStore();
-const {selectClick,hadleSelect}=UseMember();
+const {hadleSelect}=UseMember();
   return (
     <S.Main>
       <S.member>

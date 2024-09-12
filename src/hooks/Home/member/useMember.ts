@@ -1,10 +1,8 @@
-import { useState } from "react";
-import { USER_STATUS } from "@/constant/userStatus/userStatus.constant";
+import { useRef, useState } from "react";
 import { MemberType } from "@/types/member/member.type";
 import { useQueryClient } from "@tanstack/react-query";
 import { DearQueryKey } from "@/queries/queryKeys";
-import { useGetMemberList } from "@/queries/Member/Member.query";
-import { MemeberResponse } from "@/types/member/member.type";
+import { useSelectClick } from "@/store/member";
 interface MemberProps {
   idx: number;
   member: MemberType;
@@ -14,9 +12,8 @@ const UseMember = () => {
   const [moreButton, setMoreButton] = useState(false);
   const [buttonId, setButtonId] = useState<number>(0);
   const [user, setUser] = useState<MemberType>();
-  const [selectClick, setSelectClick] = useState(USER_STATUS[0]);
   const queryClient = useQueryClient();
-
+const {setSelectClick} = useSelectClick();
 
   const memberBanSetting = ({ idx, member }: MemberProps) => {
     setButtonId(idx);
@@ -36,9 +33,9 @@ const UseMember = () => {
     memberBanSetting,
     MemberSettingDenial,
     hadleSelect,
-    selectClick,
     moreButton,
     buttonId,
+
   };
 };
 

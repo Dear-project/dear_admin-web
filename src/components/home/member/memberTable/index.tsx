@@ -1,11 +1,10 @@
-'use client';
 import React from "react";
 import defaultImg from "@/assets/img/home/Avatar1.png";
 import Image from "next/image";
 import * as S from "./style";
 import { MemberType, MemeberResponse } from "@/types/member/member.type";
 import { FilterMember } from "@/utils/member/FilterMember";
-import { useMemberSearchStore } from "@/store/member/index";
+import { useMemberSearchStore, useSelectClick } from "@/store/member/index";
 import { useGetMemberList } from "@/queries/Member/Member.query";
 import UseMember from "@/hooks/Home/member/useMember";
 import convertText from "@/utils/textSplit/comvertText";
@@ -15,9 +14,8 @@ import { USER_STATUS } from "@/constant/userStatus/userStatus.constant";
 
 const MemberTable = () => {
   const { ...useMember } = UseMember();
-  console.log(useMember.selectClick);
-  
-  const {data} = useGetMemberList(useMember.selectClick);
+  const {selectClick} = useSelectClick();
+  const {data} = useGetMemberList(selectClick);
   const searchValue = useMemberSearchStore();
   
 
