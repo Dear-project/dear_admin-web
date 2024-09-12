@@ -1,3 +1,5 @@
+'use client';
+import React from "react";
 import defaultImg from "@/assets/img/home/Avatar1.png";
 import Image from "next/image";
 import * as S from "./style";
@@ -12,21 +14,17 @@ import MoreButton from "../../moreaction/index";
 import { USER_STATUS } from "@/constant/userStatus/userStatus.constant";
 
 const MemberTable = () => {
-  const memberListQuery = useGetMemberList(USER_STATUS[0]);
-  const searchValue = useMemberSearchStore();
   const { ...useMember } = UseMember();
-
-  if (!memberListQuery) {
-    // 데이터가 로딩 중일 때 처리할 내용
-    return <div>Loading...</div>;
-  }
-
-  const { data } = memberListQuery as MemeberResponse;
+  console.log(useMember.selectClick);
+  
+  const {data} = useGetMemberList(useMember.selectClick);
+  const searchValue = useMemberSearchStore();
+  
 
   return (
     <>
       <S.Tbody>
-        {FilterMember(searchValue, data ?? []).map((member: MemberType, idx) => (
+        {data?.data.map((member: MemberType, idx) => (
           <S.TR key={member.userId}>
             <S.TD>
               <Image src={defaultImg} alt="프로필사진" />

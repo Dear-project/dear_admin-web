@@ -1,1 +1,1 @@
-export const USER_STATUS = ["COMMON", "PENDING", "REJECT"]
+export const USER_STATUS = ["COMMON", "REJECT", "PENDING"]

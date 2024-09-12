@@ -7,15 +7,31 @@ import { useMemberSearchStore } from "@/store/member";
 import SkeletonComponent from "@/components/common/skleton/index";
 import ErrorBoundary from "@/components/common/error";
 import { Suspense, useState } from "react";
-const Member = () => {
-  const { memberSearch, setMemberSearch } = useMemberSearchStore();
+import UseMember from "@/hooks/Home/member/useMember";
 
+const Member = () => {
+
+  const { memberSearch, setMemberSearch } = useMemberSearchStore();
+const {selectClick,hadleSelect}=UseMember();
   return (
     <S.Main>
       <S.member>
-        <S.searchBox>
+        <S.headerBox>
+          <S.selectBox>
+            <S.selectMain value={selectClick} onChange={hadleSelect}>
+            <option value="COOMMON">
+              멤버조회
+            </option>
+            <option value="REJECT">
+              신고멤버
+            </option>
+            <option value="PENDING">
+              대기멤버
+            </option>
+            </S.selectMain>
+          </S.selectBox>
           <SearchBar onChange={setMemberSearch} value={memberSearch} />
-        </S.searchBox>
+        </S.headerBox>
         <table>
           <Table constant={MEMBER_TABLE_ITEMS} />
         </table>

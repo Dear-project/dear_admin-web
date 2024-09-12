@@ -18,7 +18,7 @@ export const useGetMemberList = (userStatus: string) => {
     refetchInterval: 3600000, // 1시간
   });
   queryClient.invalidateQueries({queryKey:[DearQueryKey.profile.getMy]})
-  return useGetMember.data ? useGetMember.data : undefined;
+  return useGetMember;
 };
 
 export const useMemebrQuit = ( )=>{
