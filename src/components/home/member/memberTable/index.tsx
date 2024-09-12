@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useEffect}from "react";
 import defaultImg from "@/assets/img/home/Avatar1.png";
 import Image from "next/image";
 import * as S from "./style";
@@ -10,14 +10,14 @@ import UseMember from "@/hooks/Home/member/useMember";
 import convertText from "@/utils/textSplit/comvertText";
 import MoreImage from "@/assets/img/home/ic_round-more-horiz.svg";
 import MoreButton from "../../moreaction/index";
-import { USER_STATUS } from "@/constant/userStatus/userStatus.constant";
 
 const MemberTable = () => {
   const { ...useMember } = UseMember();
   const {selectClick} = useSelectClick();
   const {data} = useGetMemberList(selectClick);
-  const searchValue = useMemberSearchStore();
   
+  const searchValue = useMemberSearchStore();
+
 
   return (
     <>

@@ -5,26 +5,25 @@ import { SearchBar } from "../searchBar/searchBar";
 import { MEMBER_TABLE_ITEMS } from "@/constant/member/Member.constant";
 import { useMemberSearchStore , useSelectClick} from "@/store/member";
 import UseMember from "@/hooks/Home/member/useMember";
+import { selectList } from "@/constant/userStatus/userStatus.constant";
 
 const Member = () => {
   const {selectClick}=useSelectClick();
   const { memberSearch, setMemberSearch } = useMemberSearchStore();
 const {hadleSelect}=UseMember();
+
+
   return (
     <S.Main>
       <S.member>
         <S.headerBox>
           <S.selectBox>
             <S.selectMain value={selectClick} onChange={hadleSelect}>
-            <option value="COOMMON">
-              멤버조회
-            </option>
-            <option value="REJECT">
-              신고멤버
-            </option>
-            <option value="PENDING">
-              대기멤버
-            </option>
+              {selectList.map((item)=>(
+                <option value={item.value} key={item.value}>
+                  {item.name}
+                </option>
+              ))}
             </S.selectMain>
           </S.selectBox>
           <SearchBar onChange={setMemberSearch} value={memberSearch} />

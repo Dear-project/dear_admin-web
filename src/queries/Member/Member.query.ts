@@ -16,6 +16,7 @@ export const useGetMemberList = (userStatus: string) => {
     queryFn: () => MemberRepositoryImpl.getMemberList(userStatus),
     gcTime: 5 * 60 * 1000, // 5분
     refetchInterval: 3600000, // 1시간
+    
   });
   queryClient.invalidateQueries({queryKey:[DearQueryKey.profile.getMy]})
   return useGetMember;

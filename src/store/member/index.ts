@@ -1,5 +1,4 @@
 import {create} from 'zustand';
-import { USER_STATUS } from "@/constant/userStatus/userStatus.constant";
 
 
 type MemberSearchState = {
@@ -16,9 +15,9 @@ type MemberSearchState = {
 type MemberSelectState = {
   selectClick: string;
   setSelectClick: (value: string) => void;
-}
+};
 
-export const useSelectClick = create<MemberSelectState>((set)=>({
-  selectClick: USER_STATUS[0],
-  setSelectClick: (value)=> set({selectClick: value}),
-}))
+export const useSelectClick = create<MemberSelectState>((set) => ({
+  selectClick: "COMMON",
+  setSelectClick: (value) => set({ selectClick: value }),
+}));

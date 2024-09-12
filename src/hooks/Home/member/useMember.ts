@@ -13,7 +13,7 @@ const UseMember = () => {
   const [buttonId, setButtonId] = useState<number>(0);
   const [user, setUser] = useState<MemberType>();
   const queryClient = useQueryClient();
-const {setSelectClick} = useSelectClick();
+const {selectClick,setSelectClick} = useSelectClick();
 
   const memberBanSetting = ({ idx, member }: MemberProps) => {
     setButtonId(idx);
@@ -22,8 +22,11 @@ const {setSelectClick} = useSelectClick();
   };
   const hadleSelect = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>):void=>{
     setSelectClick(e.target.value);
+    
+    console.log(selectClick);
+    
     queryClient.invalidateQueries({queryKey:[DearQueryKey.member.getMember]})
-
+    
   }
   const MemberSettingDenial = () => {
     setMoreButton(false);
