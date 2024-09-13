@@ -18,6 +18,9 @@ export const TR = styled.tr`
   justify-content: space-between;
   border-top: 1px solid rgb(217, 217, 217);
   border-bottom: 1px solid rgb(217, 217, 217);
+  img{
+    cursor: pointer;
+  }
 `;
 
 export const TD = styled.td`

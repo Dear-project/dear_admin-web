@@ -4,7 +4,7 @@ import { AxiosError } from "axios";
 import { DearQueryKey } from "../queryKeys";
 import ApproveRepositoryImpl from "@/repositories/ApproveRepostiory/ApproveRepositoryImpl";
 
-export const useGetPendingMemberList = (page: number, status: ScheuduleStatus) => {
+export const useGetPendingMemberList = (page: number, status: string) => {
   const queryClient = useQueryClient();
   const useGetPendingMember = useQuery<getPendingMemberResponse, AxiosError, getPendingMemberResponse, string[]>({
     queryKey: [DearQueryKey.approve.getMember],

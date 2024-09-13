@@ -21,6 +21,7 @@ export const SearchBox = styled.div`
   align-items: flex-end;
   width: 100%;
   height: 200px;
+  gap: 20px;
 `;
 
 export const PendingMemberMain = styled.div`

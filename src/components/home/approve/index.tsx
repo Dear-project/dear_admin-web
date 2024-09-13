@@ -4,13 +4,24 @@ import { SearchBar } from "../searchBar/searchBar";
 import Table from "../table";
 import ApproveTable from "./approveTable";
 import * as S from "./style";
-import { APPROVE_MEMBER_TABLE_ITEM } from "@/constant/approve/approve.constants";
+import { APPROVE_MEMBER_TABLE_ITEM ,APPROVE_STATUS } from "@/constant/approve/approve.constants";
+import { Select } from "@/components/common/select/approveSelectButton";
+import { useApproveSelectClick } from "@/store/approve";
+
 const Approve = () => {
   const { memberSearch, setMemberSearch } = useMemberSearchStore();
+  const {selectClick,setSelectClick} = useApproveSelectClick();
+
   return (
     <S.Main>
       <S.PendingMember>
         <S.SearchBox>
+          <Select
+          items={APPROVE_STATUS}
+          value={selectClick}
+          onChange={setSelectClick}
+          zIndex={1}
+          />
           <SearchBar value={memberSearch} onChange={setMemberSearch} />
         </S.SearchBox>
         <table>

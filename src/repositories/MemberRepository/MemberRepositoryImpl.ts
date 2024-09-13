@@ -16,7 +16,7 @@ class MemberRepositoryImpl implements MemberRepository {
   }
   public async rejectMember({ Id, commnet }: RejectPrpos): Promise<RejectMemberResponse> {
     try {
-      const { data } = await dearAxios.patch(`/user/reject${Id}`, commnet);
+      const { data } = await dearAxios.patch(`/declaration/reject/${Id}`, commnet);
       return data;
     } catch (error) {
       console.error(error);
