@@ -4,6 +4,7 @@ import { MemberType } from "@/types/member/member.type";
 import { Delcaration } from "@/types/declaration/declaration.type";
 import { useQueryClient } from "@tanstack/react-query";
 import { DearQueryKey } from "@/queries/queryKeys";
+import { showToast } from "@/libs/Toast/swal";
 
 const UseDeclaration = () => {
   const queryClient = useQueryClient();
@@ -15,24 +16,25 @@ const UseDeclaration = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "승인",
+      confirmButtonText: "정지",
       cancelButtonText: "취소",
     }).then((result) => {
       if (result.isConfirmed) {
-        MemebrQuit.mutate(
-          {
-            Id: item.targetId,
-            commnet: item.reason,
-          },
-          {
-            onSuccess: () => {
-              Swal.fire("정지되었습니다", "success");
-              queryClient.invalidateQueries({
-                queryKey: [DearQueryKey.member.getMember],
-              });
-            },
-          }
-        );
+        showToast( "success","정지되었습니다")
+        // MemebrQuit.mutate(
+        //   {
+        //     Id: item.targetId,
+        //     commnet: item.reason,
+        //   },
+        //   {
+        //     onSuccess: () => {
+            
+        //       // queryClient.invalidateQueries({
+        //       //   queryKey: [DearQueryKey.member.getMember],
+        //       // });
+        //     },
+        //   }
+        // );
       }
     });
   };

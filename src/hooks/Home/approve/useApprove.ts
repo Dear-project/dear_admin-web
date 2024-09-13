@@ -1,10 +1,20 @@
 import { ApproveRepository } from "@/repositories/ApproveRepostiory/ApproveRepository";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { usePostApproveMember } from "@/queries/Approve/approve.query";
 
 const useApprove = () => {
+    const usePostApprove = usePostApproveMember()
     const [approve, setApprove] = useState(false);
-
+const ApproveData = {
+    url : "https://school.gyo6.net/gbsw/schl/sv/schdulView/schdulCalendarView.do",
+    week: "tr.week",
+    days : "td.selectDay",
+    scheduleTag : "p",
+    scheduleDate : "id",
+    scheduleAttr : "data-schdultitle",
+    schoolSeq : "13131"
+}
     const memberApprove = () => {
         Swal.fire({
             title: "이 학교를 승인 할까요?",
@@ -16,8 +26,14 @@ const useApprove = () => {
             cancelButtonText: "취소",
         }).then((result) => {
             if (result.isConfirmed) {
-                setApprove(true);
-                Swal.fire("승인되었습니다", "", "success");
+                
+                usePostApprove.mutate(ApproveData,{
+                    onSuccess:()=>{
+                        
+                        Swal.fire("승인되었습니다", "", "success");
+                    }
+                })
+               
             }
         });
     };
