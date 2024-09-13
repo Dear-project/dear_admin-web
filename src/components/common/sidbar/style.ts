@@ -23,6 +23,10 @@ export const sidecontext = styled.div`
   display: flex;
   width: 100%;
   height: 80%;
+
+  a:focus {
+    outline: none;
+  }
 `;
 export const navigation = styled.div`
   display: flex;
