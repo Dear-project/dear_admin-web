@@ -1,9 +1,8 @@
-"use client"
-import Approve from "@/components/home/approve";
+"use client";
+import Member from "@/components/home/member";
 
 const MainPage = () => {
-  return <Approve />;
+  return <Member />;
 };
 
 export default MainPage;
-

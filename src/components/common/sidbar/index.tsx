@@ -9,6 +9,8 @@ import member2 from "@/assets/img/home/Vector.png";
 import chat2 from "@/assets/img/home/chat.png";
 import banner2 from "@/assets/img/home/page_info.png";
 import defaultImg from "@/assets/img/home/Avatar1.png";
+import approve from "@/assets/img/home/approve.svg";
+import approve2 from "@/assets/img/home/approve2.svg";
 import Logout from "@/components/home/logout/index";
 import { usePathname } from "next/navigation";
 import * as S from "./style";
@@ -25,9 +27,9 @@ const Sidebar = () => {
       </S.Logo>
       <S.sidecontext>
         <S.navigation>
-        <Link href={"/"}>
-            <S.sideblock $isSelect={"/" === pathname ? true : false}>
-              <Image src={"/" === pathname ? banner : banner2} alt="승인" />
+          <Link href={"/approve/"}>
+            <S.sideblock $isSelect={"/approve/" == pathname ? true : false}>
+              <Image src={"/approve/" == pathname ? approve2 : approve} alt="승인" />
               <span>승인</span>
             </S.sideblock>
           </Link>
@@ -49,7 +51,6 @@ const Sidebar = () => {
               <span>배너</span>
             </S.sideblock>
           </Link>
-        
         </S.navigation>
       </S.sidecontext>
       <S.sideprofile onClick={sidebar.OpenProfileSetting}>

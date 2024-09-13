@@ -2,14 +2,16 @@ export const DearQueryKey = {
   profile: {
     getMy: "/profile",
   },
-  member:{
-    getMember:"/user",
+  member: {
+    getMember: "/user",
   },
-  banner:{
+  banner: {
     get: "/banner",
-  
   },
-  declaration:{
-    getDeclaration:"/declaration",
-  }
-}
+  declaration: {
+    getDeclaration: "/declaration",
+  },
+  approve: {
+    getMember: "/schedule/status",
+  },
+};

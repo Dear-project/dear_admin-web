@@ -1,1 +1,1 @@
-export const APPROVE_MEMBER_TABLE_ITEM = ["이름", "아이디", "소속"]
+export const APPROVE_MEMBER_TABLE_ITEM = ["학교", "인원", "상태"];
