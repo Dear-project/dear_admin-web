@@ -27,9 +27,9 @@ const Sidebar = () => {
       </S.Logo>
       <S.sidecontext>
         <S.navigation>
-          <Link href={"/approve/"}>
-            <S.sideblock $isSelect={"/approve/" == pathname ? true : false}>
-              <Image src={"/approve/" == pathname ? approve2 : approve} alt="승인" />
+          <Link href={"/"}>
+            <S.sideblock $isSelect={"/" == pathname ? true : false}>
+              <Image src={"/" == pathname ? approve2 : approve} alt="승인" />
               <span>승인</span>
             </S.sideblock>
           </Link>
