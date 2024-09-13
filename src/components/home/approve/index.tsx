@@ -18,9 +18,7 @@ const Approve = () => {
         </table>
         <S.PendingMemberMain>
           <S.PendingMemberList>
-            <table>
-              <ApproveTable />
-            </table>
+            <ApproveTable />
           </S.PendingMemberList>
         </S.PendingMemberMain>
       </S.PendingMember>

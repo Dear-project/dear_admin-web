@@ -6,7 +6,7 @@ interface getPendingMemberType {
   schoolName: string;
   schoolSeq: string;
   studentNum: number;
-  scheudleStatus: ScheuduleStatus;
+  scheduleStatus: ScheuduleStatus;
 }
 
 export interface getPendingMemberResponse extends Response {

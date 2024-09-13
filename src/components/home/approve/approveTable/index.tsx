@@ -7,17 +7,19 @@ import { useGetPendingMemberList } from "@/queries/Approve/approve.query";
 import { statusTransform } from "@/utils/approve/statusTransform";
 
 const ApproveTable = () => {
-  const { data } = useGetPendingMemberList(1, "PENDING");
+  const { data } = useGetPendingMemberList(1, "ACTIVE");
 
   return (
     <>
-      <S.TBody>
+      <S.TBody style={{ width: "100%" }}>
         {data?.data.map((approveMember, idx) => (
-          <S.TR key={idx}>
-            <S.TD style={{ width: "120px" }}>{convertText.omissionText(approveMember.schoolName)}</S.TD>
-            <S.TD style={{ width: "130px" }}>{approveMember.studentNum}</S.TD>
-            <S.TD style={{ width: "80px" }}>{statusTransform(approveMember.scheudleStatus)}</S.TD>
-            <Image src={MoreImage} alt="더보기" />
+          <S.TR key={idx} style={{ width: "100%" }}>
+            <S.TD style={{ width: "10.5%" }}>{convertText.omissionText(approveMember.schoolName)}</S.TD>
+            <S.TD style={{ width: "37.5%" }}>{approveMember.studentNum}</S.TD>
+            <S.TD style={{ width: "13%", alignItems: "flex-start" }}>
+              {statusTransform(approveMember.scheduleStatus)}
+            </S.TD>
+            <Image src={MoreImage} alt="더보기" style={{ width: "40px" }} />
           </S.TR>
         ))}
       </S.TBody>

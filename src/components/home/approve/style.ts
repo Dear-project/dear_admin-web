@@ -34,7 +34,7 @@ export const PendingMemberMain = styled.div`
   border-bottom: 1px rgb(217, 217, 217);
 `;
 
-export const PendingMemberList = styled.div`
+export const PendingMemberList = styled.table`
   display: flex;
   width: 100%;
   height: 100%;
