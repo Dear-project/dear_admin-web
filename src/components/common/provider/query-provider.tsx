@@ -2,7 +2,7 @@
 import GlobalStyle from "@/styles/global";
 import {
   QueryClient,
-  QueryClientProvider as MaruQueryClientProvider,
+  QueryClientProvider as DearQueryClientProvider,
 } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import type { ReactNode } from "react";
@@ -30,11 +30,11 @@ const QueryClientProvider = ({ children }: Props) => {
   );
 
   return (
-    <MaruQueryClientProvider client={queryClient}>
+    <DearQueryClientProvider client={queryClient}>
       <GlobalStyle />
       {children}
       {/* <ReactQueryDevtools initialIsOpen={true} /> */}
-    </MaruQueryClientProvider>
+    </DearQueryClientProvider>
   );
 };
 
