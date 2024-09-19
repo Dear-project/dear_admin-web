@@ -18,6 +18,6 @@ export interface MemeberResponse extends Response {
 }
 
 export interface RejectPrpos {
-  Id: number;
-  commnet: string;
+  id: number;
+  comment: string;
 }

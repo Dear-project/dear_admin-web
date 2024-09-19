@@ -43,8 +43,6 @@ const MemberTable = () => {
                   idx: idx,
                   member: member,
                 };
-                console.log(idx);
-
                 useMember.memberBanSetting(params);
               }}
             />

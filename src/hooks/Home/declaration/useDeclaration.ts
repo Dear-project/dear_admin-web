@@ -20,21 +20,20 @@ const UseDeclaration = () => {
       cancelButtonText: "취소",
     }).then((result) => {
       if (result.isConfirmed) {
-        showToast( "success","정지되었습니다")
-        // MemebrQuit.mutate(
-        //   {
-        //     Id: item.targetId,
-        //     commnet: item.reason,
-        //   },
-        //   {
-        //     onSuccess: () => {
-            
-        //       // queryClient.invalidateQueries({
-        //       //   queryKey: [DearQueryKey.member.getMember],
-        //       // });
-        //     },
-        //   }
-        // );
+        showToast("success", "정지되었습니다");
+        MemebrQuit.mutate(
+          {
+            id: item.targetId,
+            comment: item.reason,
+          },
+          {
+            onSuccess: () => {
+              queryClient.invalidateQueries({
+                queryKey: [DearQueryKey.member.getMember],
+              });
+            },
+          },
+        );
       }
     });
   };
