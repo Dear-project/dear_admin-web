@@ -57,7 +57,7 @@ export const memberMain = styled.div`
   }
 `;
 
-export const memberList = styled.div`
+export const memberList = styled.table`
   display: flex;
   width: 100%;
   height: 100%;

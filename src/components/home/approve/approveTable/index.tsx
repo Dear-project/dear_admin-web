@@ -9,10 +9,9 @@ import useApprove from "@/hooks/Home/approve/useApprove";
 import { useApproveSelectClick } from "@/store/approve";
 
 const ApproveTable = () => {
-  const {selectClick}= useApproveSelectClick();
+  const { selectClick } = useApproveSelectClick();
   const { data } = useGetPendingMemberList(1, selectClick);
-  const {memberApprove, approve} = useApprove();
-
+  const { memberApprove, approve } = useApprove();
 
   return (
     <>
@@ -22,7 +21,7 @@ const ApproveTable = () => {
             <S.TD style={{ width: "10.5%" }}>{convertText.omissionText(approveMember.schoolName)}</S.TD>
             <S.TD style={{ width: "37.5%" }}>{approveMember.studentNum}/5</S.TD>
             <S.TD style={{ width: "13%", alignItems: "flex-start" }}>
-            {statusTransform(approveMember.scheduleStatus)}
+              {statusTransform(approveMember.scheduleStatus)}
             </S.TD>
             <Image src={MoreImage} alt="더보기" style={{ width: "40px" }} onClick={memberApprove} />
           </S.TR>

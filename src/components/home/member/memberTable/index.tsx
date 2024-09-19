@@ -1,4 +1,4 @@
-import React ,{useEffect}from "react";
+import React, { useEffect } from "react";
 import defaultImg from "@/assets/img/home/Avatar1.png";
 import Image from "next/image";
 import * as S from "./style";
@@ -13,28 +13,27 @@ import MoreButton from "../../moreaction/index";
 
 const MemberTable = () => {
   const { ...useMember } = UseMember();
-  const {selectClick} = useSelectClick();
-  
-  const {data} = useGetMemberList(selectClick);
-  
+  const { selectClick } = useSelectClick();
+
+  const { data } = useGetMemberList(selectClick);
+
   const searchValue = useMemberSearchStore();
 
-
   return (
-    <>
-      <S.Tbody>
-        {data?.data.map((member: MemberType, idx) => (
-          <S.TR key={member.userId}>
-            <S.TD>
-              <Image src={defaultImg} alt="프로필사진" />
-            </S.TD>
-            <S.TD>{member.name}</S.TD>
-            <S.TD>{convertText.omissionText(member.email)}</S.TD>
-            <S.TD>
-              {convertText.omissionText(member.schoolName)
-                ? convertText.omissionText(member.schoolName)
-                : "학교 정보 없음"}
-            </S.TD>
+    <S.Tbody>
+      {data?.data.map((member: MemberType, idx) => (
+        <S.TR key={member.userId} status={selectClick === "PENDING" ? true : false}>
+          <S.TD>
+            <Image src={defaultImg} alt="프로필사진" />
+          </S.TD>
+          <S.TD>{member.name}</S.TD>
+          <S.TD>{convertText.omissionText(member.email)}</S.TD>
+          <S.TD>
+            {convertText.omissionText(member.schoolName)
+              ? convertText.omissionText(member.schoolName)
+              : "학교 정보 없음"}
+          </S.TD>
+          {selectClick === "PENDING" && (
             <Image
               src={MoreImage}
               alt="더보기"
@@ -49,11 +48,11 @@ const MemberTable = () => {
                 useMember.memberBanSetting(params);
               }}
             />
-          </S.TR>
-        ))}
-        {useMember.moreButton && <MoreButton Id={useMember.buttonId} onClose={useMember.MemberSettingDenial} />}
-      </S.Tbody>
-    </>
+          )}
+        </S.TR>
+      ))}
+      {useMember.moreButton && <MoreButton Id={useMember.buttonId} onClose={useMember.MemberSettingDenial} />}
+    </S.Tbody>
   );
 };
 

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 export const Tbody = styled.tbody`
   width: 100%;
   font-size: 14px;
@@ -7,15 +7,24 @@ export const Tbody = styled.tbody`
   flex-direction: column;
   white-space: normal;
 `;
-export const TR = styled.tr`
+export const TR = styled.tr<{ status: boolean }>`
   width: 100%;
   height: 80px;
   display: flex;
   position: relative;
   align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid rgb(217, 217, 217);
   border-bottom: 1px solid rgb(217, 217, 217);
+
+  ${({ status }) => {
+    if (!status) {
+      return css`
+        gap: 15%;
+      `;
+    }
+    return css`
+      justify-content: space-between;
+    `;
+  }}
 `;
 
 export const TD = styled.td`
