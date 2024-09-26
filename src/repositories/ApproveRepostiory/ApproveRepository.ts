@@ -4,6 +4,7 @@ export interface ApproveRepository {
 }
 
 export interface getPendingMemberType {
+  url: string;
   schoolName: string;
   schoolSeq: string;
   studentNum: number;
