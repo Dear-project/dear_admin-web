@@ -2,7 +2,6 @@
 import * as S from "./style";
 import { useGetPendingMemberList } from "@/queries/Approve/approve.query";
 import { useApproveSelectClick } from "@/store/approve";
-import { useMemberSearchStore } from "@/store/member";
 import ActiveTable from "./activeTable";
 import PendingTable from "./pendingTable";
 

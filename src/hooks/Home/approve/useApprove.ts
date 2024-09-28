@@ -1,26 +1,23 @@
 import { ApproveRepository } from "@/repositories/ApproveRepostiory/ApproveRepository";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Swal from "sweetalert2";
 import { usePostApproveMember } from "@/queries/Approve/approve.query";
-
-interface memberApproveProps {
-  url: string;
-  schoolSeq: string;
-}
+import { useSchoolAdditionalData } from "@/store/approve";
 
 const useApprove = () => {
   const usePostApprove = usePostApproveMember();
-  const [approve, setApprove] = useState(false);
-  //   const ApproveData = {
-  //     url: "https://school.gyo6.net/gbsw/schl/sv/schdulView/schdulCalendarView.do",
-  //     week: "tr.week",
-  //     days: "td.selectDay",
-  //     scheduleTag: "p",
-  //     scheduleDate: "id",
-  //     scheduleAttr: "data-schdultitle",
-  //     schoolSeq: "13131",
-  //   };
-  const memberApprove = ({ url, schoolSeq }: memberApproveProps) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { additionalData, setAdditionalData } = useSchoolAdditionalData();
+
+  const handleAdditionalData = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = e.target;
+      setAdditionalData((prev) => ({ ...prev, [name]: value }));
+    },
+    [setAdditionalData],
+  );
+
+  const memberApprove = (schoolSeq: string) => {
     Swal.fire({
       title: "이 학교를 승인 할까요?",
       icon: "warning",
@@ -31,14 +28,15 @@ const useApprove = () => {
       cancelButtonText: "취소",
     }).then((result) => {
       const ApproveData = {
-        url: url,
-        week: "tr.week",
-        days: "td.selectDay",
-        scheduleTag: "p",
+        url: additionalData.url,
+        week: additionalData.weektag,
+        days: additionalData.daytag,
+        scheduleTag: additionalData.scheduletag,
         scheduleDate: "id",
-        scheduleAttr: "data-schduletitle",
+        scheduleAttr: additionalData.scheduleAttr,
         schoolSeq: schoolSeq,
       };
+      setIsOpen((prev) => !prev);
       if (result.isConfirmed) {
         usePostApprove.mutate(ApproveData, {
           onSuccess: () => {
@@ -51,7 +49,9 @@ const useApprove = () => {
 
   return {
     memberApprove,
-    approve,
+    isOpen,
+    setIsOpen,
+    handleAdditionalData,
   };
 };
 
