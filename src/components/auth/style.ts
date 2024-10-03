@@ -58,6 +58,18 @@ export const LoginInput = styled.input`
   font-style: normal;
   font-weight: 200;
   line-height: 130.702%;
+  
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #fff inset;
+    -webkit-text-fill-color: #000;
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+  }
 `;
 export const BottomBar = styled.div`
   width: 100%;
