@@ -8,7 +8,6 @@ import convertText from "@/utils/textSplit/comvertText";
 import useApprove from "@/hooks/Home/approve/useApprove";
 import Image from "next/image";
 import MoreImage from "@/assets/img/home/ic_round-more-horiz.svg";
-import ApproveModal from "../../approveModal";
 
 interface Props {
   activeList: getPendingMemberType[];
@@ -16,7 +15,7 @@ interface Props {
 
 const ActiveTable = ({ activeList }: Props) => {
   const { memberSearch } = useMemberSearchStore();
-  const { memberApprove, isOpen, setIsOpen } = useApprove();
+  const { memberApprove } = useApprove();
   return (
     <>
       {FilterApproveList(memberSearch, activeList).map((approve, idx) => (

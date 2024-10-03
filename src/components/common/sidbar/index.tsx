@@ -2,10 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import Usesidebar from "@/hooks/Home/sidebar/usesidebar";
 import logo from "@/assets/img/DEAR2.png";
-import member from "@/assets/img/home/Vector2.png";
+import member from "@/assets/img/home/member.svg";
+import member2 from "@/assets/img/home/member2.svg";
 import chat from "@/assets/img/home/chat2.png";
 import banner from "@/assets/img/home/page_info2.png";
-import member2 from "@/assets/img/home/Vector.png";
 import chat2 from "@/assets/img/home/chat.png";
 import banner2 from "@/assets/img/home/page_info.png";
 import defaultImg from "@/assets/img/home/Avatar1.png";
@@ -35,7 +35,7 @@ const Sidebar = () => {
           </Link>
           <Link href={"/member/"}>
             <S.sideblock $isSelect={"/member/" == pathname ? true : false}>
-              <Image src={"/member/" == pathname ? member : member2} alt="구성원" />
+              <Image src={"/member/" == pathname ? member : member2} alt="구성원"  style={{zIndex: 5}}/>
               <span>구성원</span>
             </S.sideblock>
           </Link>

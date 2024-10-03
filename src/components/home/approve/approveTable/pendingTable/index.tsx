@@ -13,7 +13,7 @@ interface Props {
 }
 
 const PendingTable = ({ pendingList }: Props) => {
-  const { memberApprove } = useApprove();
+  const { memberApprove, isOpen, setIsOpen } = useApprove();
   return (
     <>
       {pendingList?.map((approve, idx) => (
@@ -29,7 +29,7 @@ const PendingTable = ({ pendingList }: Props) => {
               onClick={() => memberApprove(approve.schoolSeq)}
             />
           </S.TR>
-          
+          <ApproveModal isOpen={isOpen} setIsOpen={setIsOpen} schoolSeq={approve.schoolSeq} />
         </>
       ))}
     </>
