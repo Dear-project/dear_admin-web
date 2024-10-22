@@ -37,3 +37,16 @@ export const TD = styled.td`
   width: 115px;
   text-overflow: ellipsis;
 `;
+
+export const NoneDeclarationWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+
+  width: 100%;
+  height: 100%;
+
+  margin-bottom: 10%;
+`

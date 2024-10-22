@@ -7,6 +7,7 @@ import useApprove from "@/hooks/Home/approve/useApprove";
 import Image from "next/image";
 import MoreImage from "@/assets/img/home/ic_round-more-horiz.svg";
 import ApproveModal from "../../approveModal";
+import DearCharacter from "@/assets/img/DearCharacter.svg";
 
 interface Props {
   pendingList: getPendingMemberType[];
@@ -16,7 +17,7 @@ const PendingTable = ({ pendingList }: Props) => {
   const { memberApprove, isOpen, setIsOpen } = useApprove();
   return (
     <>
-      {pendingList?.map((approve, idx) => (
+      {pendingList.length > 0 ? ( pendingList?.map((approve, idx) => (
         <>
           <S.TR key={idx} style={{ width: "100%" }}>
             <S.TD style={{ width: "10.5%" }}>{convertText.omissionText(approve.schoolName)}</S.TD>
@@ -31,7 +32,12 @@ const PendingTable = ({ pendingList }: Props) => {
           </S.TR>
           <ApproveModal isOpen={isOpen} setIsOpen={setIsOpen} schoolSeq={approve.schoolSeq} />
         </>
-      ))}
+      ))): (
+        <S.NoneDeclarationWrap>
+          <Image src={DearCharacter} alt="디어캐릭터" width={200} height={200} />
+          <p>대기중인 학교가 없습니다.</p>
+        </S.NoneDeclarationWrap>
+      )}
     </>
   );
 };
