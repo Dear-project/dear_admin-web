@@ -17,7 +17,7 @@ const PendingTable = ({ pendingList }: Props) => {
   const { memberApprove, isOpen, setIsOpen } = useApprove();
   return (
     <>
-      {pendingList.length > 0 ? ( pendingList?.map((approve, idx) => (
+      {pendingList?.length > 0 ? ( pendingList?.map((approve, idx) => (
         <>
           <S.TR key={idx} style={{ width: "100%" }}>
             <S.TD style={{ width: "10.5%" }}>{convertText.omissionText(approve.schoolName)}</S.TD>

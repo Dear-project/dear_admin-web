@@ -18,7 +18,7 @@ const ActiveTable = ({ activeList }: Props) => {
   const { memberApprove } = useApprove();
   return (
     <>
-      {FilterApproveList(memberSearch, activeList).map((approve, idx) => (
+      {FilterApproveList(memberSearch, activeList)?.map((approve, idx) => (
         <S.TR key={idx} style={{ width: "100%" }}>
           <S.TD style={{ width: "10.5%" }}>{convertText.omissionText(approve.schoolName)}</S.TD>
           <S.TD style={{ width: "37.5%" }}>{approve.studentNum}/5</S.TD>

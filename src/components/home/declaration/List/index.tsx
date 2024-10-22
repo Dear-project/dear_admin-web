@@ -12,8 +12,8 @@ const DeclarationList = () => {
   const { ...declaration } = UseDeclaration();
   return (
     <S.DirectionList>
-      {reversedData.length > 0 ? (
-        reversedData.map((item, idx) => (
+      {reversedData?.length > 0 ? (
+        reversedData?.map((item, idx) => (
           <S.DeclarationThead key={idx}>
             <S.Title>신고자 = {item.reportName}</S.Title>
             <S.Title>신고 대상 이름 = {item.targetName}</S.Title>

@@ -39,7 +39,7 @@ export const Select = ({
       </SelectIcon>
       {!close && (
         <SelectItemWrap style={{ zIndex }}>
-          {items.map((item, idx) => (
+          {items?.map((item, idx) => (
             <SelectItem key={idx} onClick={() => {onChange(item),
               setClickEvent(true)
             }}>

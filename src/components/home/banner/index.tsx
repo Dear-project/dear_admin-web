@@ -13,7 +13,7 @@ const Banner = () => {
         <S.bannerList>
           <span>배너목록</span>
           <S.bannerOverList >
-          {data?.data.map((data , index) => (            
+          {data?.data?.map((data , index) => (            
             <BannerList  key={index} data={data}/>
           ))}
           </S.bannerOverList>
